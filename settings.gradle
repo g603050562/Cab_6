@@ -1,0 +1,8 @@
+//include ':BatteryUpgrade', ':UpgradeLibrary', ':app14', ':app15', ':ControlPanelUpgrade', ':app16', ':app17', ':app18', ':app19', ':LongLink', ':MoviesUpload', ':PubFunction', ':PduUpgrade', ':HttpClient',
+//        ':app4', ':app5', ':app7', ':app6', ':app8', ':app9', ':app10',
+//        ':app11',
+//        ':app12', ':app13'
+
+include ':app15'
+include ':ExtensionTaskUpgrade', ':ControlPanelUpgrade', ':LongLink', ':MoviesUpload', ':PubFunction', ':PduUpgrade', ':HttpClient', ':BatteryUpgrade', ':UpgradeLibrary'
+//include ':CanBus'

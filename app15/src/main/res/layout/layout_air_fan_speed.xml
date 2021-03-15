@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_corners_blue_radius_5"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="风扇转速"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"></TextView>
+
+    <RadioGroup
+        android:id="@+id/rg_1To5AirFanControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="1"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="2"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="3"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="4"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="  5"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_6To10AirFanControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="6"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="7"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="8"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="9"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:text="10"
+            android:textColor="@android:color/white"
+            android:textDirection="ltr"
+            android:textSize="10sp"></RadioButton>
+    </RadioGroup>
+
+</LinearLayout>

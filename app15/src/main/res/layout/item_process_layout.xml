@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:background="@null"
+        android:clickable="false"
+        android:gravity="center"
+        android:textColor="#666666"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/pb_process"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/tv_precent"
+        android:layout_toRightOf="@+id/tv_number"
+        android:max="100" />
+
+    <TextView
+        android:id="@+id/tv_precent"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:clickable="false"
+        android:gravity="center"
+        android:text="%0"
+        android:textColor="#666666"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pb_process"
+        android:background="@null"
+        android:textColor="#666666"
+        android:textSize="18dp"
+        android:visibility="invisible" />
+</RelativeLayout>

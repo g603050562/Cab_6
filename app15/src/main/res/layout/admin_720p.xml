@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebc194"
+    android:orientation="vertical">
+    <!--新界面-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="855dp"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/bar_info_girdview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="3"></GridView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="185dp">
+
+                <GridView
+                    android:id="@+id/cha_info_girdview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="3"></GridView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_corners_white_radius_5">
+
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:id="@+id/thread_protection"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:adjustViewBounds="true"
+                        android:gravity="center"
+                        android:src="@drawable/image_6"
+                        android:text="12块"
+                        android:textColor="#ffffff"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="是否开启线程保护:"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_corners_org_radius_5"
+                        android:gravity="center"
+                        android:text="一键测试"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/item_5_text_buttom"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="语音测试"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="电柜4G卡号:"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/item_7_text"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="电柜编号:"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/deviceNumber"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="时间"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/item_9_text"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加热模式："
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/tv_heatMode"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="13dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="电流检测板"
+                        android:textColor="@android:color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_detectionBoardLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="状态：\n输出电压：\n输出电流：\n故障告警：\n检测板版本：\n阈值：\n工作模式："
+                        android:textColor="#666666"
+                        android:textSize="12sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_detectionBoardInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="12sp"></TextView>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="推杆时间:"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_pushrodActSetTime"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_envBoard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="环境板"
+                    android:textColor="@android:color/black"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="内部水位：\n外部水位:\n烟感值：\n内部温度\n外部温度:\n环境板版本：\n风扇开启数量："
+                        android:textColor="#666666"
+                        android:textSize="12sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_envInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="right"
+                        android:textColor="#666666"
+                        android:textSize="12sp"></TextView>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/controlLl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6dp"
+                    android:layout_weight="1"
+                    android:divider="@drawable/devider"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/write_uid"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="写入电池UID"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_controlAndroid12vOpen"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="控制Android12V继电器开"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/tv_controlAndroid12vReboot"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="控制Android12V继电器重启"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/tv_controlAirFan12vOpen"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="控制风扇12V继电器开"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_controlAirFan12vClose"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="控制风扇12V继电器关"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_control12v1Open"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="备用12V继电器1开"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_control12v1Close"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="备用12V继电器1关"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_control12v2Open"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="备用12V继电器2开"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_control12v2Close"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="备用12V继电器2关"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_clearAmmeterData"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="清除电表数据"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/btn_currentThreshold"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="设置电流板阈值"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+                    <TextView
+                        android:id="@+id/btn_setPushRodTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="设置推杆时间"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                    <include
+                        layout="@layout/layout_air_fan_speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"></include>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_airFan1Open"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="风扇1开启"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_airFan1Close"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="风扇1关闭"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_airFan2Open"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="风扇2开启"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_airFan2Close"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="风扇2关闭"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_upgradeDcdc"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="升级DCDC"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:id="@+id/tv_upgradeAcdc"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="升级ACDC"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:id="@+id/tv_openAllDoors"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="一键开仓"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_closeAllDoors"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="一键关仓"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_rebootAcdc1"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="@drawable/button_corners_blue_radius_5"
+                            android:gravity="center"
+                            android:text="重启ACDC1"
+                            android:textColor="#ffffff"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/retuen_page"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_corners_org_radius_5"
+                        android:gravity="center"
+                        android:text="返回"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/finish"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_corners_blue_radius_5"
+                        android:gravity="center"
+                        android:text="退出"
+                        android:textColor="#ffffff"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="系统设置"
+                    android:textColor="#666666"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="系统参数"
+                    android:textColor="#666666"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

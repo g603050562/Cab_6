@@ -1,0 +1,8 @@
+项目说明 App4 ： 下载器  嵌入andorid rom包App5 ： 启动器  嵌入andorid rom包App6 ： app8的无网络进入电柜后台的密码生成（快被舍弃了）App7 ： 飞凌android板 - 4个英飞源充电器 - 485版本 - 小刚做的继电器板子 （市场没有了）App8 ： 飞凌android板 - 4个英飞源充电器 - 485版本App9 ： 李小卫android板 - 12个英飞源充电器 - can版本App10 ： 飞凌android板 - 李建华充电器 - can版本App11 ： 李小卫android板 - 李建华充电器 - can版本 - 15分钟切换充电App12 ： 飞凌android板 - 李建华充电器 - can版本 - 电池id写入
+App13 ： 李小卫android板- 李建华充电器 - can版本 - 电池id写入
+App14 ： 加热改装电柜 - 飞凌android板 - 4个充电器 - 一个加热充电器 - can版本
+App15 ： 赛德通信柜 - 李小卫android板 - ACDC/DCDC - can版本
+App16 ： 加热改装电柜 - 李小卫android板 - 4个充电器 - 一个加热充电器 - can版本
+App17 ： 李小卫android板 - 李建华充电器 - can版本 - 加热充电一起 - app11镜像
+App18 ： 李小卫android板 - 李建华充电器 - 10+1版本 - can版本
+App19 ： 飞凌控制板 - 李建华充电器 - can版本 - 加热充电一起 - app10镜像
