@@ -9,6 +9,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -37,6 +39,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.hellohuandian.app.httpclient.HttpGetDownloaderAndLauncher;
 import com.hellohuandian.app.httpclient.HttpGetQcode;
 import com.hellohuandian.app.httpclient.HttpGetTel;
 import com.hellohuandian.app.httpclient.HttpOutLineCheckOldBind;
@@ -64,6 +67,8 @@ import com.hellohuandian.moviesupload.MoviesUnit;
 import com.hellohuandian.pubfunction.BaseStation.GSMCellLocation;
 import com.hellohuandian.pubfunction.DBM.CurrentNetDBM;
 import com.hellohuandian.pubfunction.DBM.IFCurrentNetDBMLinstener;
+import com.hellohuandian.pubfunction.DownLoad.DownLoadUpdateMain;
+import com.hellohuandian.pubfunction.DownLoad.IFDownLoadUpdateMainLinstener;
 import com.hellohuandian.pubfunction.ProgressDialog.ProgressDialog_4;
 import com.hellohuandian.pubfunction.Root.RootCommand;
 import com.hellohuandian.pubfunction.Unit.LogUtil;
@@ -3307,9 +3312,12 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 String number = jsonObject.getString("number");
                 String cabid = jsonObject.getString("cabid");
                 String isHeat = jsonObject.getString("isheat");//是否加热
+
                 cabid_title = cabid;
                 cabInfoSp.setLongLinkNumber(cabid);
                 cabInfoSp.setAddress(name);
+                cabInfoSp.setAddress_1(name);
+                cabInfoSp.setVersion(MyApplication.getInstance().cab_version+"");
 
                 if (number.equals(cabinetID)) {
 
@@ -3711,6 +3719,8 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             dataJsonObject1.put("localExchanges", localExchanges);
 
                             dataJsonObject1.put("threadProtectionType", cabInfoSp.getTPTNumber()); //线程保护
+                            //是否存在拓展卡
+                            dataJsonObject1.put("isExCard", PubFunction.getIsExistExCard());
 
 
                             dataJsonObject1.put("acdc1", whichACDC[0]);
@@ -3948,6 +3958,60 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
             else if (type.equals("bindSuccess")) {
                 String cabid = jsonObject.getString("cabid");
                 cabInfoSp.setLongLinkNumber(cabid);
+
+                //*********
+                HttpGetDownloaderAndLauncher httpGetDownloaderAndLauncher = new HttpGetDownloaderAndLauncher(new HttpGetDownloaderAndLauncher.HttpGetDownloaderAndLauncherListener() {
+                    @Override
+                    public void returnMessage(String code, String msg, String data) {
+
+                        try {
+
+                            //网络版本
+                            JSONObject jsonObjectVersion = new JSONObject(data);
+                            String DownloaderVersion = jsonObjectVersion.getString("DownloaderVersion");
+                            String LauncherVersion = jsonObjectVersion.getString("LauncherVersion");
+                            String DownloaderUrl = jsonObjectVersion.getString("DownloaderUrl");
+                            String LauncherUrl = jsonObjectVersion.getString("LauncherUrl");
+
+                            //本地版本
+                            PackageManager packageManager = getPackageManager();
+                            PackageInfo packageInfo = packageManager.getPackageInfo("com.NewElectric.app4", 0);
+                            int nowDownloaderVersion = packageInfo.versionCode;
+                            PackageInfo packageInfoLauncher = packageManager.getPackageInfo("com.NewElectric.app5", 0);
+                            int nowLauncherVersion = packageInfoLauncher.versionCode;
+
+                            if(Integer.parseInt(DownloaderVersion) > nowDownloaderVersion){
+                                DownLoadUpdateMain downLoadApk = new DownLoadUpdateMain(activity, DownloaderUrl, "app4.apk", new IFDownLoadUpdateMainLinstener() {
+                                    @Override
+                                    public void onDownLoadUpdateMainResult(int[] data) {
+                                    }
+                                });
+                                downLoadApk.downloadAPK();
+                                if (localLog != null) {
+                                    localLog.writeLog("下载 - 正在下载安装下载器");
+                                }
+                                showDialogInfo("正在下载下载器！", "3", "2");
+                            }
+
+                            if(Integer.parseInt(LauncherVersion) > nowLauncherVersion){
+                                DownLoadUpdateMain downLoadApk = new DownLoadUpdateMain(activity, LauncherUrl, "app5.apk" , 1 , new IFDownLoadUpdateMainLinstener() {
+                                    @Override
+                                    public void onDownLoadUpdateMainResult(int[] data) {
+                                    }
+                                });
+                                downLoadApk.downloadAPK();
+                                if (localLog != null) {
+                                    localLog.writeLog("下载 - 正在下载安装启动器");
+                                }
+                                showDialogInfo("正在下载启动器！", "3", "2");
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                httpGetDownloaderAndLauncher.start();
             }
 
             //长链接下发伸长推杆 和收回

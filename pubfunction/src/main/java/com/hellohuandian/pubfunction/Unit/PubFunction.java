@@ -235,4 +235,13 @@ public class PubFunction {
         }
         return lResult;
     }
+
+    public static int getIsExistExCard(){
+        int return_int = 0 ; // 0 - 不存在//  1 - 存在
+        File file = new File("/mnt/external_sd/Android");
+        if(file.exists()){
+            return_int = 1;
+        }
+        return return_int;
+    }
 }
