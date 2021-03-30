@@ -395,7 +395,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 //            code = "-1";
             writeLocalLog(data + "");
             if (code.equals("-1")) {  //开启离线换电
-                outLineExchangeUID(Integer.parseInt(door));
+                outLineExchangeUID(Integer.parseInt(door), null);
             } else {
                 try {
 
@@ -459,6 +459,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                     } else if (code.equals("1")) {
                         JSONObject returnData = jsonObject.getJSONObject("data");
                         final String utype = returnData.getString("utype");
+                        final String uid32 = returnData.getString("uid32");
                         if (!TextUtils.isEmpty(utype)) {
                             cost_bi.post(new Runnable() {
                                 @Override
@@ -467,7 +468,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                 }
                             });
                         }
-                        outLineExchangeUID(Integer.parseInt(door));
+                        outLineExchangeUID(Integer.parseInt(door), uid32);
                     }
 
                 } catch (JSONException e) {
@@ -2365,18 +2366,18 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 // TODO: 2019-12-26 2：找不到符合换电的电池推出原电池
                 // TODO: 2019-12-26 3：校验码写入失败处理，考虑重试2~3次
                 // TODO: 2019-12-26 4:推出符合要求的电池，发送消息提示拿走
-                outLineExchangeUID(i_address);
+                outLineExchangeUID(i_address, null);
             }
         }
 
     }
 
-    public void outLineExchangeUID(final int door) {
+    public void outLineExchangeUID(final int door, String uid32) {
         writeLocalLog("door" + door);
         final int doorIndex = door - 1;
 
         if (doorIndex >= 0) {
-            final String uid = UIDS[doorIndex];
+            final String uid = TextUtils.isEmpty(uid32) ? UIDS[doorIndex] : uid32;
             //排查选中的电是不是没有绑定的电池
             if (BatteryUtil.is8A(uid)) {//电池未绑定，回收电池
                 writeLocalLog(door + "号仓电池未绑定，将被回收，如有问题请拨打客服电话咨询！");
@@ -2488,7 +2489,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
             final int inPercent = PERCENtAGES[doorIndex];
             final String in_battery = BIDS[doorIndex] + "";
 
-            final String inDoorBarUID = UIDS[in_door - 1];
+            final String inDoorBarUID = uid;
 
             //做超时等待
             int result_out = 0;
@@ -2520,7 +2521,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                     writeLocalLog("电池校验失败，正在尝试再次换电，请稍后！");
                     showDialogInfo("电池校验失败，正在尝试再次换电，请稍后！", "5", "1");
                     SystemClock.sleep(5000);
-                    outLineExchangeUID(doorIndex + 1);
+                    outLineExchangeUID(doorIndex + 1, null);
                     exchangeFailCount = 1;
                 } else {
                     writeLocalLog("写入要弹出的电池ID失败，弹出电池！");
