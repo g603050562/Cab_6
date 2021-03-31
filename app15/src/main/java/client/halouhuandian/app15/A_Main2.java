@@ -303,6 +303,8 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     private boolean isAutoSetCurrentDetection;
     private boolean isAllowCloseAcdcs = true;
 
+    public static boolean isAutoControlAirfan = true;
+
     public static Set<String> upgrading = new HashSet<>();
     public volatile boolean upgradingStatus;
     private int temperature;
@@ -869,61 +871,64 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         }
                     }
 
-                    int waitPower = ACDC_gonglv[0] * 10 + ACDC_gonglv[1] * 10 - remainingTotalPower2[0] * 10;
-                    if (waitPower >= 500) {
-                        //在线,大于-40度认为在线
-                        if (sensorDataBean.getTemperature1() >= -40) {
+                    if(isAutoControlAirfan)
+                    {
+                        int waitPower = ACDC_gonglv[0] * 10 + ACDC_gonglv[1] * 10 - remainingTotalPower2[0] * 10;
+                        if (waitPower >= 500) {
+                            //在线,大于-40度认为在线
+                            if (sensorDataBean.getTemperature1() >= -40) {
 
-                            if (sensorDataBean.getTemperature1() >= 40 && sensorDataBean.getTemperature1() <= 50) {
-                                if (sensorDataBean.getAirFan1Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                }
-                                if (sensorDataBean.getAirFan2Status() == 0) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                }
-                            } else if (sensorDataBean.getTemperature1() > 50) {
-                                if (sensorDataBean.getAirFan1Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                }
-                                if (sensorDataBean.getAirFan2Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
+                                if (sensorDataBean.getTemperature1() >= 40 && sensorDataBean.getTemperature1() <= 50) {
+                                    if (sensorDataBean.getAirFan1Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                    }
+                                    if (sensorDataBean.getAirFan2Status() == 0) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                                    }
+                                } else if (sensorDataBean.getTemperature1() > 50) {
+                                    if (sensorDataBean.getAirFan1Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                    }
+                                    if (sensorDataBean.getAirFan2Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
+                                    }
+                                } else {
+                                    if (sensorDataBean.getAirFan1Status() == 0) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
+                                    }
+                                    if (sensorDataBean.getAirFan2Status() == 0) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                                    }
                                 }
                             } else {
-                                if (sensorDataBean.getAirFan1Status() == 0) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
+                                //不在线，就是温度传感器不在线
+                                if (waitPower <= 3000) {
+                                    //小于3000w开一个，否则开两个
+                                    if (sensorDataBean.getAirFan1Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                    }
+                                    if (sensorDataBean.getAirFan2Status() == 0) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                                    }
                                 }
-                                if (sensorDataBean.getAirFan2Status() == 0) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                }
-                            }
-                        } else {
-                            //不在线，就是温度传感器不在线
-                            if (waitPower <= 3000) {
-                                //小于3000w开一个，否则开两个
-                                if (sensorDataBean.getAirFan1Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                }
-                                if (sensorDataBean.getAirFan2Status() == 0) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                }
-                            }
-                            if (waitPower > 3000) {
-                                if (sensorDataBean.getAirFan1Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                }
-                                if (sensorDataBean.getAirFan2Status() == 1) {
-                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
+                                if (waitPower > 3000) {
+                                    if (sensorDataBean.getAirFan1Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                    }
+                                    if (sensorDataBean.getAirFan2Status() == 1) {
+                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
+                                    }
                                 }
                             }
-                        }
 
-                    } else {
-                        // TODO: 2020/8/6小于500W都关闭
-                        if (sensorDataBean.getAirFan1Status() == 0) {
-                            DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
-                        }
-                        if (sensorDataBean.getAirFan2Status() == 0) {
-                            DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                        } else {
+                            // TODO: 2020/8/6小于500W都关闭
+                            if (sensorDataBean.getAirFan1Status() == 0) {
+                                DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
+                            }
+                            if (sensorDataBean.getAirFan2Status() == 0) {
+                                DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                            }
                         }
                     }
 
@@ -1750,7 +1755,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     public void onSerialResultApp(byte[] serData) {
         String str = new ChangeTool().ByteArrToHex(serData);
         str = str.replaceAll(" ", "");
-        LogUtil.I("SER 返回：" + str);
+//        LogUtil.I("SER 返回：" + str);
     }
 
 

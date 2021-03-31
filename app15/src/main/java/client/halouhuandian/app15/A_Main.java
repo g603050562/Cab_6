@@ -954,7 +954,7 @@ public class A_Main extends Activity implements OnClickListener, MyApplication.I
                         ERROR_state_03[door - 1] = PubFunction.ByteArrToHex(can_item_data);
                     }
                 }
-                LogUtil.I("CAN - 返回 - ERROR ： " + PubFunction.ByteArrToHex(can_item_data));
+//                LogUtil.I("CAN - 返回 - ERROR ： " + PubFunction.ByteArrToHex(can_item_data));
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -1278,7 +1278,7 @@ public class A_Main extends Activity implements OnClickListener, MyApplication.I
     public void onSerialResultApp(byte[] serData) {
         String str = new ChangeTool().ByteArrToHex(serData);
         str = str.replaceAll(" ", "");
-        LogUtil.I("SER 返回：" + str);
+//        LogUtil.I("SER 返回：" + str);
     }
 
 

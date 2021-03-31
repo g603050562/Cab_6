@@ -2,6 +2,7 @@ package client.halouhuandian.app15.devicesController.switcher;
 
 import android.support.v4.util.Consumer;
 
+import client.halouhuandian.app15.A_Main2;
 import client.halouhuandian.app15.devicesController.CanSender;
 
 /**
@@ -42,6 +43,7 @@ public final class DeviceSwitchController implements Consumer<byte[]> {
     }
 
     public void controlAirFan(@DeviceSwitcher.AIR_FAN int cmd) {
+        A_Main2.isAutoControlAirfan = false;
         deviceSwitcher.setCmd(cmd);
     }
 

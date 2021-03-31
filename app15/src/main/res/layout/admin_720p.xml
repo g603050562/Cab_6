@@ -46,6 +46,7 @@
         </LinearLayout>
 
         <ScrollView
+            android:orientation="vertical"
             android:layout_width="260dp"
             android:layout_height="match_parent"
             android:background="@drawable/button_corners_white_radius_5">
@@ -207,6 +208,7 @@
                         android:textColor="#666666"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -232,6 +234,7 @@
                         android:textColor="#666666"
                         android:textSize="13dp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -464,6 +467,7 @@
                         android:text="设置电流板阈值"
                         android:textColor="#ffffff"
                         android:textSize="13dp" />
+
                     <TextView
                         android:id="@+id/btn_setPushRodTime"
                         android:layout_width="match_parent"
@@ -493,8 +497,7 @@
                             android:gravity="center"
                             android:text="风扇1开启"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                            android:textSize="13dp" />
 
                         <TextView
                             android:id="@+id/tv_airFan1Close"
@@ -504,8 +507,7 @@
                             android:gravity="center"
                             android:text="风扇1关闭"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                            android:textSize="13dp" />
 
                         <TextView
                             android:id="@+id/tv_airFan2Open"
@@ -515,8 +517,7 @@
                             android:gravity="center"
                             android:text="风扇2开启"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                            android:textSize="13dp" />
 
                         <TextView
                             android:id="@+id/tv_airFan2Close"
@@ -526,8 +527,7 @@
                             android:gravity="center"
                             android:text="风扇2关闭"
                             android:textColor="#ffffff"
-                            android:textSize="13dp"
-                            android:visibility="gone" />
+                            android:textSize="13dp" />
 
                         <TextView
                             android:id="@+id/tv_upgradeDcdc"
