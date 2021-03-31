@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1845decb56a375e3e91bb19f58d0039/rclayout-1.8.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1845decb56a375e3e91bb19f58d0039/rclayout-1.8.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1845decb56a375e3e91bb19f58d0039/rclayout-1.8.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.gcssloop.widget/rclayout/1.8.1/96efedfa90c297e77f5fc42fab03c06415619f70/rclayout-1.8.1-javadoc.jar!/" />

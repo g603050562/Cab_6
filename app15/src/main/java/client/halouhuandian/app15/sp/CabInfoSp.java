@@ -10,7 +10,7 @@ public class CabInfoSp {
 
     public CabInfoSp(Activity activity) {
         this.activity = activity;
-        sharedPreferences = activity.getSharedPreferences("CabInfo", Activity.MODE_PRIVATE);
+        sharedPreferences = activity.getSharedPreferences("CabInfo",  Activity.MODE_WORLD_READABLE);
     }
 
     /**
@@ -136,6 +136,47 @@ public class CabInfoSp {
         String address = sharedPreferences.getString("address", "----");
         return address;
     }
+
+
+
+    /**
+     * 设置sp里面 电柜位置
+     */
+    public void setAddress_1(String chargeMode){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("setAddress", chargeMode);
+        editor.commit();
+    }
+    /**
+     * 获取sp里面 电柜位置
+     * @return
+     */
+    public String getAddress_1(){
+        String longLinkCabNumber = sharedPreferences.getString("setAddress","0");
+        return longLinkCabNumber;
+    }
+
+    /**
+     * 设置sp里面 电柜版本
+     */
+    public void setVersion(String chargeMode){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("setVersion", chargeMode);
+        editor.commit();
+    }
+    /**
+     * 获取sp里面 电柜版本
+     * @return
+     */
+    public String getVersion(){
+        String longLinkCabNumber = sharedPreferences.getString("setVersion","0");
+        return longLinkCabNumber;
+    }
+
+
+
+
+
 
     private static final String CURRENT_THRESHOLD = "currentThreshold";
 

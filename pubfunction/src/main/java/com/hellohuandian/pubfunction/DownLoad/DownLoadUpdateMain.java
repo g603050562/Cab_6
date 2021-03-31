@@ -21,13 +21,13 @@ public class DownLoadUpdateMain {
 
     private Context activity;
     private String httpUrl;
-    private String packageName;
-    final String fileName = "updata.apk";
+    private String fileName = "updata.apk";
 
     private AsyncTask asyncTaskRateReturn;
     private int asyncTaskRateReturnCode = 0;
     private DownloadManager downloadManager;
     private long mTaskId = 0;
+    private int isReboot = 0;
 
     private IFDownLoadUpdateMainLinstener ifDownLoadUpdateMainLinstener = null;
 
@@ -39,9 +39,18 @@ public class DownLoadUpdateMain {
 
     public DownLoadUpdateMain(Context activity, String httpUrl,String packageName, IFDownLoadUpdateMainLinstener ifDownLoadUpdateMainLinstener) {
         this.activity = activity;
-        this.packageName = packageName;
+        this.fileName = packageName;
         this.httpUrl = httpUrl;
         this.ifDownLoadUpdateMainLinstener = ifDownLoadUpdateMainLinstener;
+        this.isReboot = 0;
+    }
+
+    public DownLoadUpdateMain(Context activity, String httpUrl,String packageName ,int isReboot, IFDownLoadUpdateMainLinstener ifDownLoadUpdateMainLinstener) {
+        this.activity = activity;
+        this.fileName = packageName;
+        this.httpUrl = httpUrl;
+        this.ifDownLoadUpdateMainLinstener = ifDownLoadUpdateMainLinstener;
+        this.isReboot = isReboot;
     }
 
     //使用系统下载器下载
@@ -153,6 +162,23 @@ public class DownLoadUpdateMain {
                     System.out.println("网络：   >>>下载完成");
                     String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + File.separator + fileName;
                     execRootCmdSilent("pm install -r " + downloadPath);
+                    if(isReboot == 1){
+                        Thread thread = new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+
+                                try {
+                                    sleep(5 * 60  * 1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                                execRootCmdSilent("reboot");
+                            }
+                        };
+                        thread.start();
+                    }
                     break;
                 case DownloadManager.STATUS_FAILED:
                     System.out.println("网络：   >>>下载失败");
