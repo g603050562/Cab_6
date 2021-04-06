@@ -793,7 +793,6 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         } else {
                             LogUtil.I("网络：   正在检测4G卡 imsi - " + imsi);
                         }
-
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                         onCreateThreadCode = 1;
@@ -876,8 +875,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         }
                     }
 
-                    if(isAutoControlAirfan)
-                    {
+                    if (isAutoControlAirfan) {
                         int waitPower = ACDC_gonglv[0] * 10 + ACDC_gonglv[1] * 10 - remainingTotalPower2[0] * 10;
                         if (waitPower >= 500) {
                             //在线,大于-40度认为在线
@@ -939,24 +937,13 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 
 //                    if(sensorDataBean.getWaterLevel())
 
-                    if (!isInitFinish) {
-                        writeLocalLog("按钮开门日志-isInitFinish：" + isInitFinish);
-                        return;
-                    }
-                    //没有升级任务才可以处理按钮开门
-                    if (isReplaceBattery) {
-                        writeLocalLog("按钮开门日志-isReplaceBattery：" + isReplaceBattery);
-                        return;
-                    }
-                    if ((upgrading != null && !upgrading.isEmpty())) {
-                        writeLocalLog("按钮开门日志-upgrading：" + upgrading);
+                    if (!isInitFinish || isReplaceBattery || (upgrading != null && !upgrading.isEmpty())) {
                         return;
                     }
 
                     final byte currentButtonStatus = sensorDataBean.getButtonStatus();
                     if (openDoorButton == currentButtonStatus) {
                         if (isOpenProcess) {
-//                            writeLocalLog("按钮开门日志-isOpenProcess：" + isOpenProcess);
                             return;
                         }
                         if (obtainEmptyDoor() == -1) {
@@ -980,38 +967,43 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                     writeLocalLog("准备打开空仓门，请注意安全！");
                                     showDialogInfo("准备打开空仓门，请注意安全！", "10", "1");
 
-                                    BatteryDataModel batteryDataModel = obtainRandomEmptyDoorModel();
-                                    if (batteryDataModel != null) {
-                                        DoorController.getInstance().openDoor(batteryDataModel);
-                                        SystemClock.sleep(3000);
-                                        writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
-                                        if (batteryDataModel.isSideMicroswitchPressed()) {
-                                            batteryDataModel = obtainRandomEmptyDoorModel();
+                                    try {
+                                        BatteryDataModel batteryDataModel = obtainRandomEmptyDoorModel();
+                                        if (batteryDataModel != null) {
                                             DoorController.getInstance().openDoor(batteryDataModel);
                                             SystemClock.sleep(3000);
-                                            writeLocalLog("再次打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
-                                            LogUtil.I("打开舱门" + batteryDataModel.isSideMicroswitchPressed());
+                                            writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
                                             if (batteryDataModel.isSideMicroswitchPressed()) {
-                                                writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
-                                                showDialogInfo("打开仓门失败，请重试", "10", "1");
+                                                batteryDataModel = obtainRandomEmptyDoorModel();
+                                                DoorController.getInstance().openDoor(batteryDataModel);
+                                                SystemClock.sleep(3000);
+                                                writeLocalLog("再次打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
+                                                LogUtil.I("打开舱门" + batteryDataModel.isSideMicroswitchPressed());
+                                                if (batteryDataModel.isSideMicroswitchPressed()) {
+                                                    writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
+                                                    showDialogInfo("打开仓门失败，请重试", "10", "1");
+                                                } else {
+                                                    isOpened = true;
+                                                }
                                             } else {
+                                                writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门成功,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
                                                 isOpened = true;
                                             }
-                                        } else {
-                                            writeLocalLog("打开" + batteryDataModel.doorNumber + "空仓门成功,侧微动：" + batteryDataModel.isSideMicroswitchPressed());
-                                            isOpened = true;
                                         }
-                                    }
 
-                                    if (isOpened) {
-                                        Bundle bundle = new Bundle();
-                                        Message message1 = new Message();
-                                        message1.what = 1;
-                                        bundle.putInt("randomEmptyDoor", batteryDataModel.doorNumber);
-                                        message1.setData(bundle);
-                                        openDoorButtonHandler.sendMessageDelayed(message1, TimeUnit.MINUTES.toMillis(1));
+                                        if (isOpened) {
+                                            Bundle bundle = new Bundle();
+                                            Message message1 = new Message();
+                                            message1.what = 1;
+                                            bundle.putInt("randomEmptyDoor", batteryDataModel.doorNumber);
+                                            message1.setData(bundle);
+                                            openDoorButtonHandler.sendMessageDelayed(message1, TimeUnit.MINUTES.toMillis(1));
+                                        }
+                                        isOpenProcess = false;
+                                    } catch (Exception e) {
+                                        writeLocalLog("打开舱门异常：" + e.getMessage());
+                                        isOpenProcess = false;
                                     }
-                                    isOpenProcess = false;
                                 }
                             });
                         }
@@ -1288,7 +1280,9 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                     }
 
                     //电池信息解析
-                    new DataHandleBARThread(door, return_order).start();
+                    if (return_order != null) {
+                        new DataHandleBARThread(door, return_order).start();
+                    }
                 } else {
 //                    LogUtil.I("CAN - 返回 - BAR ：  " + door + " - 丢帧");
                 }
@@ -1423,7 +1417,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
             }
 
             //电池查询命令返回
-            if (data.length == 126 && AN_IS_RUN == 0 && upgrading.isEmpty()) {
+            if (data != null && data.length == 126 && AN_IS_RUN == 0 && upgrading.isEmpty()) {
                 //替换索引值
                 Map<String, String> map = new A_M_Analysis().analysisData_BAR(data);
                 final String door_state = map.get("door");
@@ -2951,6 +2945,10 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         });
                     }
 
+                    if (System.currentTimeMillis() / 1000 % 10 == 0) {
+                        writeLocalLog("按钮开门日志：isInitFinish:" + isInitFinish + " isReplaceBattery:" + isReplaceBattery + " upgrading:" + (upgrading != null && !upgrading.isEmpty()));
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -3323,7 +3321,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 cabInfoSp.setLongLinkNumber(cabid);
                 cabInfoSp.setAddress(name);
                 cabInfoSp.setAddress_1(name);
-                cabInfoSp.setVersion(MyApplication.getInstance().cab_version+"");
+                cabInfoSp.setVersion(MyApplication.getInstance().cab_version + "");
 
                 if (number.equals(cabinetID)) {
 
@@ -3986,7 +3984,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             PackageInfo packageInfoLauncher = packageManager.getPackageInfo("com.NewElectric.app5", 0);
                             int nowLauncherVersion = packageInfoLauncher.versionCode;
 
-                            if(Integer.parseInt(DownloaderVersion) > nowDownloaderVersion){
+                            if (Integer.parseInt(DownloaderVersion) > nowDownloaderVersion) {
                                 DownLoadUpdateMain downLoadApk = new DownLoadUpdateMain(activity, DownloaderUrl, "app4.apk", new IFDownLoadUpdateMainLinstener() {
                                     @Override
                                     public void onDownLoadUpdateMainResult(int[] data) {
@@ -3999,8 +3997,8 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                 showDialogInfo("正在下载下载器！", "3", "2");
                             }
 
-                            if(Integer.parseInt(LauncherVersion) > nowLauncherVersion){
-                                DownLoadUpdateMain downLoadApk = new DownLoadUpdateMain(activity, LauncherUrl, "app5.apk" , 1 , new IFDownLoadUpdateMainLinstener() {
+                            if (Integer.parseInt(LauncherVersion) > nowLauncherVersion) {
+                                DownLoadUpdateMain downLoadApk = new DownLoadUpdateMain(activity, LauncherUrl, "app5.apk", 1, new IFDownLoadUpdateMainLinstener() {
                                     @Override
                                     public void onDownLoadUpdateMainResult(int[] data) {
                                     }
