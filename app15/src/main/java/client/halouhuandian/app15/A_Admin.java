@@ -1064,7 +1064,7 @@ class MyAdapter_1 extends BaseAdapter {
 
                     @Override
                     public void accept(Object o) {
-                        A_Admin.showprogressDialogHandler.sendMessage(new Message());
+//                        A_Admin.showprogressDialogHandler.sendMessage(A_Admin.showprogressDialogHandler.obtainMessage());
                         BatteryDataModel batteryDataModel = A_Main2.batteryDataModels.get(doorNum - 1);
                         if (batteryDataModel != null) {
                             DoorController.getInstance().openDoor(batteryDataModel);
@@ -1100,7 +1100,7 @@ class MyAdapter_1 extends BaseAdapter {
                     public void accept(Object o) {
 //                        A_Main2.pull("", doorNum + "");
 //                        A_Main2.testStop(doorNum);
-                        A_Admin.showprogressDialogHandler.sendMessage(new Message());
+//                        A_Admin.showprogressDialogHandler.sendMessage(new Message());
                         BatteryDataModel batteryDataModel = A_Main2.batteryDataModels.get(doorNum - 1);
                         if (batteryDataModel != null) {
                             DoorController.getInstance().closeDoor(batteryDataModel);

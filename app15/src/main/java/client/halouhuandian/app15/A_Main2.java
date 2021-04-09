@@ -1592,10 +1592,10 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                                     batteryDataModel = batteryDataModels.get(i_address - 1);
                                                     if (batteryDataModel != null) {
                                                         DoorController.getInstance().openDoor(batteryDataModel);
+                                                        LogUtil.I("测试卡顿：打开啊");
                                                     }
 //                                                    push("", i_address + "");
 //                                                    SystemClock.sleep(6000);
-                                                    LogUtil.I("检测不到换电电池，请重试！");
 
                                                     Bundle bundle = new Bundle();
                                                     Message message1 = new Message();
@@ -1604,6 +1604,9 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                                     message1.setData(bundle);
                                                     openDoorButtonHandler.sendMessageDelayed(message1, TimeUnit.MINUTES.toMillis(1));
                                                     writeLocalLog(i_address + "号仓门将在60秒后关闭");
+
+                                                    LogUtil.I("测试卡顿：检测不到换电电池，请重试！");
+                                                    LogUtil.I("检测不到换电电池，请重试！");
                                                     return;
                                                 }
                                             }
@@ -1615,7 +1618,6 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                     if (!(BIDS[doorIndex].charAt(0) == 'M' || BIDS[doorIndex].charAt(0) == 'N' || BIDS[doorIndex].charAt(0) == 'R')) {
                                         writeLocalLog(i_address + "号仓门电池无法识别！" + BIDS[doorIndex]);
                                         showDialogInfo(i_address + "号仓门电池无法识别！", "10", "1");
-                                        isReplaceBattery = false;
 
                                         batteryDataModel = batteryDataModels.get(i_address - 1);
                                         if (batteryDataModel != null) {
@@ -1638,6 +1640,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                         message1.setData(bundle);
                                         openDoorButtonHandler.sendMessageDelayed(message1, TimeUnit.MINUTES.toMillis(1));
                                         writeLocalLog(i_address + "号仓门将在60秒后关闭");
+                                        isReplaceBattery = false;
                                         return;
                                     }
 
@@ -1658,7 +1661,6 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 //                                            SystemClock.sleep(6000);
                                             LogUtil.I("检测不到换电电池，请重试！");
                                             showDialogInfo("检测不到换电电池，请重试！", "6", "1");
-                                            isReplaceBattery = false;
 
                                             Bundle bundle10s = new Bundle();
                                             Message message10s = new Message();
@@ -1674,6 +1676,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                             message1.setData(bundle);
                                             openDoorButtonHandler.sendMessageDelayed(message1, TimeUnit.MINUTES.toMillis(1));
                                             writeLocalLog(i_address + "号仓门将在60秒后关闭");
+                                            isReplaceBattery = false;
                                             return;
                                         }
                                     } else {
@@ -1946,10 +1949,21 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                String speakType = msg.getData().getString("type");
-                String msg_str = msg.getData().getString("msg");
-                String time_str = msg.getData().getString("time");
-                progressDialog_4.show(msg_str, Integer.parseInt(time_str), Integer.parseInt(speakType));
+                if (!isFinishing()) {
+                    final String speakType = msg.getData().getString("type");
+                    final String msg_str = msg.getData().getString("msg");
+                    final String time_str = msg.getData().getString("time");
+                    try {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressDialog_4.show(msg_str, Integer.parseInt(time_str), Integer.parseInt(speakType));
+                            }
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         };
 
@@ -2761,13 +2775,16 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
      * @param time
      */
     private void showDialogInfo(String msg, String time, String type) {
-        Message message_3 = showProgressDialogHandler.obtainMessage();
-        Bundle bundle_3 = new Bundle();
-        bundle_3.putString("msg", msg);
-        bundle_3.putString("time", time);
-        bundle_3.putString("type", type);
-        message_3.setData(bundle_3);
-        showProgressDialogHandler.sendMessage(message_3);
+        if (!isFinishing()) {
+            showProgressDialogHandler.removeCallbacksAndMessages(null);
+            Message message_3 = showProgressDialogHandler.obtainMessage();
+            Bundle bundle_3 = new Bundle();
+            bundle_3.putString("msg", msg);
+            bundle_3.putString("time", time);
+            bundle_3.putString("type", type);
+            message_3.setData(bundle_3);
+            showProgressDialogHandler.sendMessage(message_3);
+        }
     }
 
     /**
@@ -4482,9 +4499,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                 e.printStackTrace();
                             }
                             if (c != null) {
-                                LogUtil.I("换电任务开始：" + c.toString());
                                 c.accept(null);
-                                LogUtil.I("换电任务结束：" + c.toString());
                                 Consumer c2 = replaceLinkedBlockingQueue.peek();
                                 if (c2 != null && c2.equals(c)) {
                                     replaceLinkedBlockingQueue.poll();

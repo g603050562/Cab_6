@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hellohuandian.pubfunction.Unit.LogUtil;
 import com.hellohuandian.pubfunction.animation.DialogAnimation;
 
 
@@ -64,7 +64,6 @@ public class ProgressDialog_4 {
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 time.setText(mtime + "");
-                System.out.println("dialog：" + mtime);
             }
         };
 
@@ -82,7 +81,6 @@ public class ProgressDialog_4 {
             public void run() {
                 super.run();
                 while (threadStatus == 0) {
-
                     if (activity == null) {
                         break;
                     }
@@ -90,14 +88,10 @@ public class ProgressDialog_4 {
                     if (mtime > 0) {
                         setTimeHandler.sendMessage(setTimeHandler.obtainMessage());
                         mtime = mtime - 1;
-
-                        try {
-                            sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        SystemClock.sleep(1000);
                     }
-                    if (mtime <= 0 && open_an == 1) {
+                    if (mtime == 0 && open_an == 1) {
+                        mtime = -1;
                         open_an = 0;
                         dismissPanelHandler.sendMessage(new Message());
                     }
