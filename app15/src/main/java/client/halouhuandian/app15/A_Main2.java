@@ -653,6 +653,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     };
 
     private volatile boolean isReplaceBattery;
+    private volatile boolean isOpenProcess;
 
     private byte[][] uidBytes = new byte[9][8];
     public static byte pushrodActSetTime = (byte) 0x96;
@@ -827,7 +828,6 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
         // TODO: 2020/3/29 更新传感器UI
         SensorController.getInstance().setUpdateConsumer(new Consumer<SensorDataBean>() {
             private byte openDoorButton;
-            private volatile boolean isOpenProcess;
 
             private int ammeterPower1;
 
@@ -3486,9 +3486,14 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 
             //长链接下发  网络后台开门
             else if (type.equals("remoteOpenDoor")) {
+                if(isOpenProcess)
+                {
+                    return;
+                }
                 try {
                     final int door = Integer.parseInt(jsonObject.getString("door"));
                     LogUtil.I((door + "号门状态：" + SMALLS[door - 1]));
+                    writeLocalLog("远程打开" + door + "号门");
 
                     syncControl(new Consumer() {
                         @Override
@@ -3515,6 +3520,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             BatteryDataModel batteryDataModel = batteryDataModels.get(door - 1);
                             if (batteryDataModel != null) {
                                 DoorController.getInstance().openDoor(batteryDataModel);
+                                writeLocalLog("远程打开" + door + "号门结束");
                             }
                         }
                     });
@@ -3523,6 +3529,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 }
             } else if (type.equals("remoteCloseDoor")) {
                 String num = jsonObject.getString("number");
+                writeLocalLog("远程关闭" + num + "号门");
                 LogUtil.I("num:" + num);
                 if (!TextUtils.isEmpty(num)) {
                     try {
@@ -3551,6 +3558,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                                 BatteryDataModel batteryDataModel = batteryDataModels.get(door - 1);
                                 if (batteryDataModel != null) {
                                     DoorController.getInstance().closeDoor(batteryDataModel);
+                                    writeLocalLog("远程关闭" + door + "号门结束");
                                 }
                             }
                         });
