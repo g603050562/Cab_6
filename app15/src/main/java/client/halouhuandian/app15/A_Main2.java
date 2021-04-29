@@ -118,6 +118,7 @@ import client.halouhuandian.app15.pub.DownLoadApk;
 import client.halouhuandian.app15.pub.UpdataBattery;
 import client.halouhuandian.app15.pub.UpdataDcdc;
 import client.halouhuandian.app15.pub.dcList.DcDataLink;
+import client.halouhuandian.app15.pub.recordBtnStatus.HttpRecordBtn;
 import client.halouhuandian.app15.serial_port.ChangeTool;
 import client.halouhuandian.app15.sp.CabInfoSp;
 import client.halouhuandian.app15.sp.ForbiddenSp;
@@ -837,7 +838,8 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 // TODO: 2020/3/29 传感器数据->UI(注意此回调是在子线程)
                 if (sensorDataBean != null) {
                     if (sensorDataBean.getWaterLevel() < 1.5f || sensorDataBean.getWaterLevel2() < 1.5f) {
-                        FireSwitchController.getInstance().control(1);
+                        writeLocalLog("水位1：" + sensorDataBean.getWaterLevel() + "-" + "水位2：" + sensorDataBean.getWaterLevel2());
+//                        FireSwitchController.getInstance().control(1);
                     }
 
                     evnSoftwareVersion = sensorDataBean.getSoftwareVersion() + "";
@@ -935,17 +937,35 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         }
                     }
 
-//                    if(sensorDataBean.getWaterLevel())
+                    final byte currentButtonStatus = sensorDataBean.getButtonStatus();
+                    if (currentButtonStatus == 0) {
+                        writeLocalLog("按钮有按下currentButtonStatus:" + currentButtonStatus +
+                                "\n" + "isInitFinish:" +
+                                "\n" + "isReplaceBattery:" + isReplaceBattery +
+                                "\n" + "upgrading:" + !upgrading.isEmpty()
+                                + "\n" + "isOpenProcess:" + isOpenProcess);
+                        recordBunStatus("开门按钮按下了" +
+                                "\n" + "isInitFinish:" +
+                                "\n" + "isReplaceBattery:" + isReplaceBattery +
+                                "\n" + "upgrading:" + !upgrading.isEmpty()
+                                + "\n" + "isOpenProcess:" + isOpenProcess);
+                    }
+                    LogUtil.I("按钮:状态：" + currentButtonStatus
+                            + "\n" + "按钮:isInitFinish：" + isInitFinish
+                            + "\n" + "isReplaceBattery:" + isReplaceBattery
+                            + "\n" + "upgrading:" + upgrading.isEmpty()
+                            + "\n" + "isOpenProcess:" + isOpenProcess);
 
                     if (!isInitFinish || isReplaceBattery || (upgrading != null && !upgrading.isEmpty())) {
                         return;
                     }
 
-                    final byte currentButtonStatus = sensorDataBean.getButtonStatus();
+
                     if (openDoorButton == currentButtonStatus) {
                         if (isOpenProcess) {
                             return;
                         }
+
                         if (obtainEmptyDoor() == -1) {
                             if (!textToSpeech.isSpeaking()) {
                                 writeLocalLog("没有可以打开的空仓门");
@@ -3486,8 +3506,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 
             //长链接下发  网络后台开门
             else if (type.equals("remoteOpenDoor")) {
-                if(isOpenProcess)
-                {
+                if (isOpenProcess) {
                     return;
                 }
                 try {
@@ -4699,5 +4718,14 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     private int[] turnOff = new int[9];
     int aa = 30;
 
+    private void recordBunStatus(String info) {
+        HttpRecordBtn httpRecordBtn = new HttpRecordBtn(cabinetID, info, new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                LogUtil.I("按钮接口：" + s);
+            }
+        });
+        httpRecordBtn.start();
+    }
 }
 

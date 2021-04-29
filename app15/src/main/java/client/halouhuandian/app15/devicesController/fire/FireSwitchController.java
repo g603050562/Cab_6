@@ -22,7 +22,7 @@ public final class FireSwitchController implements Consumer<byte[]> {
     }
 
     public void control(int... switchCmds) {
-        fireControlSwitcher.setCmdData(switchCmds);
+//        fireControlSwitcher.setCmdData(switchCmds);
     }
 
     @Override
