@@ -378,7 +378,9 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 //                                    testStop(randomEmptyDoor);
                                     BatteryDataModel batteryDataModel = batteryDataModels.get(randomEmptyDoor - 1);
                                     if (batteryDataModel != null) {
+                                        writeLocalLog("10秒关闭开始：" + randomEmptyDoor + "号舱门，侧微动：" + batteryDataModel.isSideMicroswitchPressed());
                                         DoorController.getInstance().closeDoor(batteryDataModel);
+                                        writeLocalLog("10秒关闭结束：" + randomEmptyDoor + "号舱门，侧微动：" + batteryDataModel.isSideMicroswitchPressed());
                                     }
 
                                 }
@@ -883,14 +885,14 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             //在线,大于-40度认为在线
                             if (sensorDataBean.getTemperature1() >= -40) {
 
-                                if (sensorDataBean.getTemperature1() >= 40 && sensorDataBean.getTemperature1() <= 50) {
+                                if (sensorDataBean.getTemperature1() >= 30 && sensorDataBean.getTemperature1() <= 40) {
                                     if (sensorDataBean.getAirFan1Status() == 1) {
                                         DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
                                     }
                                     if (sensorDataBean.getAirFan2Status() == 0) {
                                         DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
                                     }
-                                } else if (sensorDataBean.getTemperature1() > 50) {
+                                } else if (sensorDataBean.getTemperature1() > 40) {
                                     if (sensorDataBean.getAirFan1Status() == 1) {
                                         DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
                                     }
@@ -953,7 +955,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                     LogUtil.I("按钮:状态：" + currentButtonStatus
                             + "\n" + "按钮:isInitFinish：" + isInitFinish
                             + "\n" + "isReplaceBattery:" + isReplaceBattery
-                            + "\n" + "upgrading:" + upgrading.isEmpty()
+                            + "\n" + "upgrading:" + !upgrading.isEmpty()
                             + "\n" + "isOpenProcess:" + isOpenProcess);
 
                     if (!isInitFinish || isReplaceBattery || (upgrading != null && !upgrading.isEmpty())) {
@@ -2626,9 +2628,14 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 BatteryDataModel batteryDataModel = batteryDataModels.get(out_door - 1);
                 if (batteryDataModel != null) {
                     DoorController.getInstance().openDoor(batteryDataModel);
-                    LogUtil.I("开门后侧微动：" + SMALLS[out_door - 1]);
-                    writeLocalLog("开门后侧微动：" + SMALLS[out_door - 1]);
+                    SystemClock.sleep(1000);
+                    if (SMALLS[out_door - 1] == 1) {
+                        DoorController.getInstance().openDoor(batteryDataModel);
+                    }
                 }
+                LogUtil.I("开门后侧微动：" + SMALLS[out_door - 1]);
+                writeLocalLog("开门后侧微动：" + SMALLS[out_door - 1]);
+
                 if (mDatabase != null) {
                     //插入数据库
                     try {
@@ -4272,7 +4279,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                     ex.printStackTrace();
                 }
             } else if (type.equals("remoteSprayWater")) {
-
+                writeLocalLog("远程关机");
                 String door = jsonObject.getString("door");
                 String opts = jsonObject.getString("opts");
                 if (!TextUtils.isEmpty(door) && !TextUtils.isEmpty(opts)) {
@@ -4583,7 +4590,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
         }
     }
 
-    private static void writeLocalLog(String log) {
+    public static void writeLocalLog(String log) {
         LogUtil.I("日志：" + log);
         if (localLog != null) {
             localLog.writeLog(log);
