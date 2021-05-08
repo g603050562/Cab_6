@@ -1,8 +1,8 @@
 package client.halouhuandian.app15.devicesController.rod;
 
 import android.os.SystemClock;
+import android.text.TextUtils;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import client.halouhuandian.app15.A_Main2;
@@ -145,54 +145,33 @@ public final class DoorController {
 //        }
 
 
-
-
-
-
-
-
-
-
-
-
-
         SystemClock.sleep(500);
 
-        if (CurrentDetectionFunc.getInstance().isExistDevice())
-        {
-            do
-            {
+        if (CurrentDetectionFunc.getInstance().isExistDevice()) {
+            do {
                 RodDataController.getInstance().openDoor(batteryDataModel.doorNumber);
                 long stopTime = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(10);
-                while (System.currentTimeMillis() <= stopTime)
-                {
-                    if (batteryDataModel.isOpenMicroswitchNormal() && batteryDataModel.isOpenMicroswitchPressed())
-                    {
+                while (System.currentTimeMillis() <= stopTime) {
+                    if (batteryDataModel.isOpenMicroswitchNormal() && batteryDataModel.isOpenMicroswitchPressed()) {
                         final int stopDelayTime = 25;
                         SystemClock.sleep(stopDelayTime);
                         RodDataController.getInstance().stop(batteryDataModel.doorNumber);
                         break;
                     }
 
-                    if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited())
-                    {
+                    if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
                         RodDataController.getInstance().stop(batteryDataModel.doorNumber);
-                        if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited())
-                        {
-                            while (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited())
-                            {
+                        if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
+                            while (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
                                 continue;
                             }
-                        } else
-                        {
+                        } else {
                             SystemClock.sleep(500);
                         }
 
-                        if (openDoorTryTimes <= 1)
-                        {
+                        if (openDoorTryTimes <= 1) {
                             RodDataController.getInstance().closeDoor(batteryDataModel.doorNumber, (byte) 1);
-                        } else
-                        {
+                        } else {
                             RodDataController.getInstance().closeDoor(batteryDataModel.doorNumber, (byte) 5);
                             SystemClock.sleep(TimeUnit.SECONDS.toMillis(3));
                         }
@@ -203,33 +182,28 @@ public final class DoorController {
             while (openDoorTryTimes-- > 1 && !batteryDataModel.isOpenMicroswitchPressed());
         } else//没有电流控制板使用推杆时间控制
         {
-//            float pushrodTime = AppSpSaver.getInstance().optPushRodTime();
-//            final byte openDuration = (byte) (pushrodTime * 10);
-//            RodDataController.getInstance().openDoor(batteryDataModel.doorNumber, openDuration);
-//            boolean isV4_ = false;
-//            ArrayList<DcDcDataModel> dcDcDataModels = DcDcDataController.getInstance().getDcDcDataModels();
-//            if (dcDcDataModels != null && batteryDataModel.sn >= 0 && batteryDataModel.sn < dcDcDataModels.size())
-//            {
-//                isV4_ = dcDcDataModels.get(batteryDataModel.sn).getHardwareVersion() >= 4;
-//            }
-//
-//            if (isV4_)
-//            {
-//                long stopTime = System.currentTimeMillis() + (int) (pushrodTime * 1000);
-//                while (System.currentTimeMillis() <= stopTime)
-//                {
-//                    if (batteryDataModel.isOpenMicroswitchPressed())
-//                    {
-//                        final int stopDelayTime = 25;
-//                        SystemClock.sleep(stopDelayTime);
-//                        RodDataController.getInstance().stop(batteryDataModel.doorNumber);
-//                        break;
-//                    }
-//                }
-//            } else
-//            {
-//                SystemClock.sleep((long) (pushrodTime * 1000));
-//            }
+            float openDuration = batteryDataModel.getRodActionTime();
+            RodDataController.getInstance().openDoor(batteryDataModel.doorNumber, (byte) openDuration);
+            boolean isV4_ = false;
+
+            if (A_Main2.DCDC_SV != null) {
+                String dcdchv = A_Main2.DCDC_HV[batteryDataModel.doorNumber - 1];
+                isV4_ = TextUtils.equals(dcdchv, "4");
+            }
+
+            if (isV4_) {
+                long stopTime = System.currentTimeMillis() + (int) ((openDuration / 10) * 1000);
+                while (System.currentTimeMillis() <= stopTime) {
+                    if (batteryDataModel.isOpenMicroswitchPressed()) {
+                        final int stopDelayTime = 25;
+                        SystemClock.sleep(stopDelayTime);
+                        RodDataController.getInstance().stop(batteryDataModel.doorNumber);
+                        break;
+                    }
+                }
+            } else {
+                SystemClock.sleep((long) ((openDuration / 10) * 1000));
+            }
         }
     }
 }
