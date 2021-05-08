@@ -39,12 +39,40 @@ public class SensorDataBean {
     //电表频率
     private float ammeterFrequency;
 
-    private byte buttonStatus;
     private byte airFan1Status;
     private byte airFan2Status;
 
     //电表总功率,kwh-千瓦时
     private float ammeterTotalPower_485;
+
+    private byte preOpenDoorButtonStatus;
+    private boolean isEnvButtonTrigger;
+    private byte preOpenDoorButtonStatus2;
+    private boolean isEnvButtonTrigger2;
+
+    //开门按键(-1无状态：设置初始化)
+    private  byte openDoorButtonStatus = -1;
+    private byte openDoorButtonStatus2 = -1;
+
+    //环境板电流
+    private  float deviceCurrent;
+    //环境板电压
+    private float deviceVoltage;
+    //电流阈值
+    private float currentBoardThreshold;
+    //电流超限时间
+    private int currentBoardTransfiniteTime;
+    //继电器恢复时间
+    private  int currentBoardRecoverTime;
+    //电流板运行状态
+    private  byte currentBoardRunningStatus = -1;
+
+    public String deviceCurrent_String;
+    public String deviceVoltage_String;
+    public String currentBoardThreshold_String;
+    public String currentBoardTransfiniteTime_String;
+    public String currentBoardRecoverTime_String;
+    public String currentBoardRunningStatus_String = "无";
 
     public void setHardwareVersion(short hardwareVersion) {
         this.hardwareVersion = hardwareVersion;
@@ -114,12 +142,67 @@ public class SensorDataBean {
         this.ammeterFrequency = ammeterFrequency;
     }
 
-    public byte getButtonStatus() {
-        return buttonStatus;
+    public void setOpenDoorButtonStatus(byte openDoorButtonStatus) {
+        this.openDoorButtonStatus = openDoorButtonStatus;
+        isEnvButtonTrigger = openDoorButtonStatus == 0 && preOpenDoorButtonStatus != openDoorButtonStatus;
+        preOpenDoorButtonStatus = openDoorButtonStatus;
     }
 
-    public void setButtonStatus(byte buttonStatus) {
-        this.buttonStatus = buttonStatus;
+    public void setOpenDoorButtonStatus2(byte openDoorButtonStatus2) {
+        this.openDoorButtonStatus2 = openDoorButtonStatus2;
+        isEnvButtonTrigger2 = openDoorButtonStatus2 == 0 && preOpenDoorButtonStatus2 != openDoorButtonStatus2;
+        preOpenDoorButtonStatus2 = openDoorButtonStatus2;
+    }
+
+    public void setDeviceCurrent(float deviceCurrent) {
+        this.deviceCurrent = deviceCurrent;
+        deviceCurrent_String = deviceCurrent + "A";
+    }
+
+    public void setDeviceVoltage(float deviceVoltage) {
+        this.deviceVoltage = deviceVoltage;
+        deviceVoltage_String = deviceVoltage + "V";
+    }
+
+    public void setCurrentBoardThreshold(float currentBoardThreshold) {
+        this.currentBoardThreshold = currentBoardThreshold;
+        currentBoardThreshold_String = currentBoardThreshold + "A";
+    }
+
+    public void setCurrentBoardTransfiniteTime(int currentBoardTransfiniteTime) {
+        this.currentBoardTransfiniteTime = currentBoardTransfiniteTime;
+        currentBoardTransfiniteTime_String = currentBoardTransfiniteTime + "";
+    }
+
+    public void setCurrentBoardRecoverTime(int currentBoardRecoverTime) {
+        this.currentBoardRecoverTime = currentBoardRecoverTime;
+        currentBoardRecoverTime_String = currentBoardRecoverTime + "";
+    }
+
+    public void setCurrentBoardRunningStatus(byte currentBoardRunningStatus) {
+        this.currentBoardRunningStatus = currentBoardRunningStatus;
+        switch (currentBoardRunningStatus & 0xFF)
+        {
+            case 1:
+                currentBoardRunningStatus_String = "待机";
+                break;
+            case 2:
+                currentBoardRunningStatus_String = "预警";
+                break;
+            case 3:
+                currentBoardRunningStatus_String = "继电器断开";
+                break;
+        }
+    }
+
+    /**
+     * 按钮是否经过整个状态切换最终触发
+     *
+     * @return
+     */
+    public boolean isEnvButtonTrigger()
+    {
+        return isEnvButtonTrigger || isEnvButtonTrigger2;
     }
 
     public short getHardwareVersion() {
@@ -266,6 +349,24 @@ public class SensorDataBean {
         this.airFan2Status = airFan2Status;
     }
 
+    public float getCurrentBoardThreshold()
+    {
+        return currentBoardThreshold;
+    }
+
+    public byte getCurrentBoardRunningStatus()
+    {
+        return currentBoardRunningStatus;
+    }
+
+    public byte getOpenDoorButtonStatus() {
+        return openDoorButtonStatus;
+    }
+
+    public byte getOpenDoorButtonStatus2() {
+        return openDoorButtonStatus2;
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -288,7 +389,17 @@ public class SensorDataBean {
                         + "电表温度：" + getAmmeterTemperature_String() + "\t"
                         + "电表频率：" + getAmmeterFrequency_String() + "\t"
                         + "485电表：" + getAmmeterTotalPower_485_String() + "\t"
-                        + "按键：" + getButtonStatus() + "\t"
+                        + "开门按键：" + (openDoorButtonStatus == 0 ? "按下" : openDoorButtonStatus == 1 ? "抬起" : "无状态") + "\t"
+                        + "开门按键2：" + (openDoorButtonStatus2 == 0 ? "按下" : openDoorButtonStatus2 == 1 ? "抬起" : "无状态") + "\t"
+
+                        + "环境板电流：" + deviceCurrent_String + "\t"
+                        + "环境板电压：" + deviceVoltage_String + "\t"
+                        + "电流阈值：" + currentBoardThreshold_String + "\t"
+                        + "电流超限时间：" + currentBoardTransfiniteTime_String + "\t"
+                        + "继电器恢复时间：" + currentBoardRecoverTime_String + "\t"
+                        + "电流板运行状态：" + currentBoardRunningStatus + "\t"
+
+
                         + "风扇1：" + airFan1Status + "\t"
                         + "风扇2：" + airFan2Status;
     }
@@ -302,5 +413,26 @@ public class SensorDataBean {
     public boolean isContinueControl() {
 
         return SystemClock.elapsedRealtime() > stopTime;
+    }
+
+    /**
+     * 是否存在电流板
+     *
+     * @return
+     */
+    public boolean isExistCurrentBoardDevice()
+    {
+        //0xB2是环境板支付电流板功能
+        return hardwareVersion == 0xB2;
+    }
+
+    /**
+     * 是否到达电流阈值上限
+     *
+     * @return
+     */
+    public boolean isCurrentThresholdLimited()
+    {
+        return (currentBoardRunningStatus & 0xFF) == 0x02;
     }
 }

@@ -27,21 +27,31 @@ class SensorParser {
             parseAmmeterCarbonEmission(bytes);
             parseAmmeterTemperature(bytes);
             parseAmmeterFrequency(bytes);
-            parserButton(bytes);
             parseAmmeterTotalPower_485(bytes);
             parseWaterLevel2(bytes);
+
+            parseOpenDoorButton(bytes);
+            parseOpenDoorButton2(bytes);
+            parserAirFan1Status(bytes);
+            parserAirFan2Status(bytes);
+            parserDeviceCurrent(bytes);
+            parserDeviceVoltage(bytes);
+            parserCurrentBoardThreshold(bytes);
+            parserCurrentBoardTransfiniteTime(bytes);
+            parserCurrentBoardRecoverTime(bytes);
+            parserRunningStatus(bytes);
         }
     }
 
     private void parseHardwareVersion(byte[] bytes) {
         if (bytes.length > 1) {
-            sensorDataBean.setHardwareVersion((short) (bytes[0]& 0xFF));
+            sensorDataBean.setHardwareVersion((short) (bytes[0] & 0xFF));
         }
     }
 
     private void parseSoftwareVersion(byte[] bytes) {
         if (bytes.length > 3) {
-            sensorDataBean.setSoftwareVersion((short) (bytes[3]& 0xFF));
+            sensorDataBean.setSoftwareVersion((short) (bytes[3] & 0xFF));
         }
     }
 
@@ -149,19 +159,44 @@ class SensorParser {
         }
     }
 
-    private void parserButton(byte[] bytes) {
-        if (bytes.length > 40) {
-            byte bitValue = bytes[40];
-            byte statusValue = (byte) (bitValue & 0b0010_0000);
-            sensorDataBean.setButtonStatus((byte) (statusValue >> 5));
+    /**
+     * 解析开门按键按钮
+     *
+     * @param bytes
+     */
+    private void parseOpenDoorButton(byte[] bytes) {
+        byte statusValue = (byte) (bytes[40] & 0b0010_0000);
+        sensorDataBean.setOpenDoorButtonStatus((byte) (statusValue >> 5));
+    }
 
-            // TODO: 2020/8/4 解析风扇1，2状态
-            byte fan1status = (byte) (bitValue & 0b0000_0010);
-            sensorDataBean.setAirFan1Status((byte) (fan1status >> 1));
+    /**
+     * 解析开门按键按钮2
+     *
+     * @param bytes
+     */
+    private void parseOpenDoorButton2(byte[] bytes) {
+        byte statusValue = (byte) (bytes[40] & 0b0100_0000);
+        sensorDataBean.setOpenDoorButtonStatus2((byte) (statusValue >> 6));
+    }
 
-            byte fan2status = (byte) (bitValue & 0b0000_0100);
-            sensorDataBean.setAirFan2Status((byte) (fan2status >> 2));
-        }
+    /**
+     * 解析风扇1开关状态
+     *
+     * @param bytes
+     */
+    private void parserAirFan1Status(byte[] bytes) {
+        byte fan1status = (byte) (bytes[40] & 0b0000_0010);
+        sensorDataBean.setAirFan1Status((byte) (fan1status >> 1));
+    }
+
+    /**
+     * 解析风扇2开关状态
+     *
+     * @param bytes
+     */
+    private void parserAirFan2Status(byte[] bytes) {
+        byte fan2status = (byte) (bytes[40] & 0b0000_0100);
+        sensorDataBean.setAirFan1Status((byte) (fan2status >> 2));
     }
 
     /**
@@ -190,4 +225,63 @@ class SensorParser {
         }
     }
 
+
+    /**
+     * 解析设备电流
+     *
+     * @param bytes
+     */
+    private void parserDeviceCurrent(byte[] bytes) {
+        final int value = ((bytes[42] & 0xFF)) | ((bytes[41] & 0xFF) << 8);
+        sensorDataBean.setDeviceCurrent((float) value / 100);
+    }
+
+    /**
+     * 解析设备电压
+     *
+     * @param bytes
+     */
+    private void parserDeviceVoltage(byte[] bytes) {
+        final int value = (bytes[44] & 0xFF) | ((bytes[43] & 0xFF) << 8);
+        sensorDataBean.setDeviceVoltage((float) value / 100);
+    }
+
+    /**
+     * 解析当前电流阈值
+     *
+     * @param bytes
+     */
+    private void parserCurrentBoardThreshold(byte[] bytes) {
+        final int value = (bytes[54] & 0xFF) | ((bytes[53] & 0xFF) << 8);
+        sensorDataBean.setCurrentBoardThreshold(value / 100f);
+    }
+
+    /**
+     * 解析电流超限时间
+     *
+     * @param bytes
+     */
+    private void parserCurrentBoardTransfiniteTime(byte[] bytes) {
+        final int value = (bytes[55] & 0xFF);
+        sensorDataBean.setCurrentBoardTransfiniteTime(value * 10);
+    }
+
+    /**
+     * 解析电流板继电器恢复时间
+     *
+     * @param bytes
+     */
+    private void parserCurrentBoardRecoverTime(byte[] bytes) {
+        final int value = (bytes[56] & 0xFF);
+        sensorDataBean.setCurrentBoardRecoverTime(value * 10);
+    }
+
+    /**
+     * 解析电流板运行状态
+     *
+     * @param bytes
+     */
+    private void parserRunningStatus(byte[] bytes) {
+        sensorDataBean.setCurrentBoardRunningStatus((byte) (bytes[57] & 0xFF));
+    }
 }

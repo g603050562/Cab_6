@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="10dp"
@@ -32,7 +32,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:visibility="invisible"
                 android:id="@+id/close_door"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,54 +41,51 @@
                 android:text="关 门"
                 android:textColor="#ffffff"
                 android:textSize="12dp"
-                />
+                android:visibility="invisible" />
 
             <TextView
-                android:visibility="invisible"
                 android:id="@+id/open_door"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:background="@drawable/button_corners_org_radius_2"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="开 门"
-                android:layout_marginTop="2dp"
                 android:textColor="#ffffff"
                 android:textSize="12dp"
-                />
+                android:visibility="invisible" />
 
             <TextView
-                android:visibility="gone"
-                android:layout_marginTop="2dp"
                 android:id="@+id/charge_on"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:background="@drawable/button_corners_org_radius_2"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="充电"
                 android:textColor="#ffffff"
                 android:textSize="12dp"
-                />
+                android:visibility="gone" />
 
             <TextView
-                android:visibility="gone"
-                android:layout_marginTop="2dp"
                 android:id="@+id/charge_off"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:background="@drawable/button_corners_org_radius_2"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="断开"
                 android:textColor="#ffffff"
                 android:textSize="12dp"
-                />
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -106,15 +102,11 @@
         </LinearLayout>
 
 
-
-
-
-
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -245,13 +237,12 @@
                 </LinearLayout>
 
 
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -327,13 +318,12 @@
                 </LinearLayout>
 
 
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -414,7 +404,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -576,7 +566,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -626,6 +616,7 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
@@ -653,27 +644,102 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="4dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="开微动:"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/openDoorStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#008000"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="实际SOC:"
+                            android:textColor="#000000"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/realSoc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#008000"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="终止原因:"
+                            android:textColor="#000000"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/t_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#008000"
+                            android:textSize="12dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="52dp"
                         android:layout_height="wrap_content"
-                        android:text="实际SOC:"
+                        android:text="DC版本:"
                         android:textColor="#000000"
                         android:textSize="12dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/realSoc"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/t_11"
+                        android:layout_width="158dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:textColor="#008000"
@@ -681,16 +747,15 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:text="终止原因:"
+                        android:text="电池版本:"
                         android:textColor="#000000"
                         android:textSize="12dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/t_10"
+                        android:id="@+id/t_13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -699,51 +764,8 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
-
-
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="52dp"
-                    android:layout_height="wrap_content"
-                    android:text="DC版本:"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/t_11"
-                    android:layout_width="158dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#008000"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:text="电池版本:"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/t_13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#008000"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

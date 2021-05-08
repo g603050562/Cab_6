@@ -939,31 +939,32 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         }
                     }
 
-                    final byte currentButtonStatus = sensorDataBean.getButtonStatus();
-                    if (currentButtonStatus == 0) {
-                        writeLocalLog("按钮有按下currentButtonStatus:" + currentButtonStatus +
-                                "\n" + "isInitFinish:" +
-                                "\n" + "isReplaceBattery:" + isReplaceBattery +
-                                "\n" + "upgrading:" + !upgrading.isEmpty()
-                                + "\n" + "isOpenProcess:" + isOpenProcess);
-                        recordBunStatus("开门按钮按下了" +
-                                "\n" + "isInitFinish:" +
-                                "\n" + "isReplaceBattery:" + isReplaceBattery +
-                                "\n" + "upgrading:" + !upgrading.isEmpty()
-                                + "\n" + "isOpenProcess:" + isOpenProcess);
+                    LogUtil.I("环境板：" + sensorDataBean.toString());
+
+                    if (sensorDataBean.isEnvButtonTrigger()) {
+                        final byte currentButtonStatus = sensorDataBean.getOpenDoorButtonStatus();
+                        final byte currentButtonStatus2 = sensorDataBean.getOpenDoorButtonStatus2();
+                        if (currentButtonStatus == 0 || currentButtonStatus2 == 0) {
+                            writeLocalLog("按钮有按下currentButtonStatus:" + currentButtonStatus +
+                                    "\n" + "currentButtonStatus2:" + currentButtonStatus2 +
+                                    "\n" + "isInitFinish:" +
+                                    "\n" + "isReplaceBattery:" + isReplaceBattery +
+                                    "\n" + "upgrading:" + !upgrading.isEmpty()
+                                    + "\n" + "isOpenProcess:" + isOpenProcess);
+                            recordBunStatus("开门按钮按下了" +
+                                    "\n" + "isInitFinish:" +
+                                    "\n" + "isReplaceBattery:" + isReplaceBattery +
+                                    "\n" + "upgrading:" + !upgrading.isEmpty()
+                                    + "\n" + "isOpenProcess:" + isOpenProcess);
+                        }
                     }
-                    LogUtil.I("按钮:状态：" + currentButtonStatus
-                            + "\n" + "按钮:isInitFinish：" + isInitFinish
-                            + "\n" + "isReplaceBattery:" + isReplaceBattery
-                            + "\n" + "upgrading:" + !upgrading.isEmpty()
-                            + "\n" + "isOpenProcess:" + isOpenProcess);
 
                     if (!isInitFinish || isReplaceBattery || (upgrading != null && !upgrading.isEmpty())) {
                         return;
                     }
 
 
-                    if (openDoorButton == currentButtonStatus) {
+                    if (sensorDataBean.isEnvButtonTrigger()) {
                         if (isOpenProcess) {
                             return;
                         }
@@ -1327,6 +1328,13 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         {0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0}};
                 bar_all_2[door - 1] = arr_clear;
+            } else if (head_can_item_data == 19) {
+                if (doorIndex < batteryDataModels.size()) {
+                    BatteryDataModel batteryDataModel = batteryDataModels.get(doorIndex);
+                    if (batteryDataModel != null) {
+                        batteryDataModel.setOpenMicroswitch((byte) (can_item_data[1] & 0x01));
+                    }
+                }
             }
         }
         //DCDC返回数据帧

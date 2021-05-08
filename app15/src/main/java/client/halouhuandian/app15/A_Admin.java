@@ -88,8 +88,7 @@ public class A_Admin extends Activity implements View.OnClickListener {
 
             updateHandler.sendEmptyMessageDelayed(0, 2000);
 
-            if (cabInfoSp!=null)
-            {
+            if (cabInfoSp != null) {
                 switch (cabInfoSp.optHeatMode()) {
                     case "1"://加热
                         tv_heatMode.setText("加热");
@@ -1012,6 +1011,7 @@ class MyAdapter_1 extends BaseAdapter {
             viewHolder.t_25 = (TextView) convertView.findViewById(R.id.t_25);
             viewHolder.tv_samplingV = (TextView) convertView.findViewById(R.id.tv_samplingV);
             viewHolder.tv_RealSoc = (TextView) convertView.findViewById(R.id.realSoc);
+            viewHolder.openDoorStatus = (TextView) convertView.findViewById(R.id.openDoorStatus);
 
             viewHolder.uid = (TextView) convertView.findViewById(R.id.uid);
 
@@ -1210,6 +1210,18 @@ class MyAdapter_1 extends BaseAdapter {
             viewHolder.tv_RealSoc.setText("" + (socInt > 100 ? socInt - 100 : socInt));
         }
 
+        if (A_Main2.batteryDataModels != null && i < A_Main2.batteryDataModels.size()) {
+            BatteryDataModel batteryDataModel = A_Main2.batteryDataModels.get(i);
+
+            if (batteryDataModel != null) {
+                if (batteryDataModel.isOpenMicroswitchNormal()) {
+                    viewHolder.openDoorStatus.setText(batteryDataModel.isOpenMicroswitchPressed() ? "仓打开" : "仓关闭");
+                } else {
+                    viewHolder.openDoorStatus.setText("未知");
+                }
+            }
+        }
+
         //bms版本号
         String a = mData.get(i).get("barVer").toString().substring(0, 2);
         String b = mData.get(i).get("barVer").toString().substring(2, 4);
@@ -1387,6 +1399,7 @@ class MyAdapter_1 extends BaseAdapter {
         TextView t_25;
         TextView tv_samplingV;
         TextView tv_RealSoc;
+        TextView openDoorStatus;
 
         TextView uid;
         TextView open_door;

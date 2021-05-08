@@ -9,6 +9,7 @@ public class BatteryDataModel {
     public final int doorNumber;
     private byte sideMicroswitch = -1;
     private long rodActionTime;
+    byte openMicroswitch = -1;
 
     public BatteryDataModel(int doorNumber) {
         this.doorNumber = doorNumber;
@@ -28,5 +29,29 @@ public class BatteryDataModel {
 
     public void setRodActionTime(long rodActionTime) {
         this.rodActionTime = rodActionTime;
+    }
+
+    public void setOpenMicroswitch(byte openMicroswitch) {
+        this.openMicroswitch = openMicroswitch;
+    }
+
+    /**
+     * 开门微动是否正常
+     *
+     * @return
+     */
+    public boolean isOpenMicroswitchNormal()
+    {
+        return openMicroswitch != -1;
+    }
+
+
+    /**
+     * 开门微动是否被压住
+     *
+     * @return
+     */
+    public boolean isOpenMicroswitchPressed() {
+        return openMicroswitch == 1;
     }
 }
