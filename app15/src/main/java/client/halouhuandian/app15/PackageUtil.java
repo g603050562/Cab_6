@@ -25,8 +25,7 @@ public class PackageUtil {
     public static String getAppPackageName(Context context) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> taskInfo = activityManager.getRunningTasks(1);
-        ComponentName componentInfo = taskInfo.get(0).topActivity;
-        return componentInfo.getPackageName();
+        return taskInfo != null && !taskInfo.isEmpty() ? taskInfo.get(0).topActivity.getPackageName() : "";
     }
 
     public static String getProcessName(Context context) {

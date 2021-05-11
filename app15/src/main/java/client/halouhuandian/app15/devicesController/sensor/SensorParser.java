@@ -196,7 +196,7 @@ class SensorParser {
      */
     private void parserAirFan2Status(byte[] bytes) {
         byte fan2status = (byte) (bytes[40] & 0b0000_0100);
-        sensorDataBean.setAirFan1Status((byte) (fan2status >> 2));
+        sensorDataBean.setAirFan2Status((byte) (fan2status >> 2));
     }
 
     /**

@@ -69,6 +69,8 @@ public class A_Admin extends Activity implements View.OnClickListener {
 
         @Override
         public void handleMessage(Message msg) {
+            final String airFanMode = cabInfoSp.opt_fanauto();
+
             tv_envBoard.setText("环境板");
             stringBuilder.setLength(0);
             tv_envInfo.setText(stringBuilder.append(SensorController.getInstance().getSensorDataBean().getWaterLevel_String())
@@ -83,8 +85,12 @@ public class A_Admin extends Activity implements View.OnClickListener {
                     .append(System.lineSeparator())
                     .append("SV:").append(SensorController.getInstance().getSensorDataBean().getSoftwareVersion()).append("  HV:").append(Integer.toHexString(SensorController.getInstance().getSensorDataBean().getHardwareVersion()))
                     .append(System.lineSeparator())
-                    .append(((SensorController.getInstance().getSensorDataBean().getAirFan1Status() == 0 ? 1 : 0)
-                            + (SensorController.getInstance().getSensorDataBean().getAirFan2Status() == 0 ? 1 : 0))));
+                    .append(airFanMode.equals("1") ? "自动" : airFanMode.equals("-1") ? "手动(T1:" + cabInfoSp.opt_fan1tem() + "°C T2:" + cabInfoSp.opt_fan2tem() + "°C)" : "")
+                    .append(System.lineSeparator())
+                    .append(SensorController.getInstance().getSensorDataBean().getAirFan1Status() == 0 ? "打开" : "关闭")
+                    .append(System.lineSeparator())
+                    .append(SensorController.getInstance().getSensorDataBean().getAirFan2Status() == 0 ? "打开" : "关闭")
+                    .toString());
 
             updateHandler.sendEmptyMessageDelayed(0, 2000);
 

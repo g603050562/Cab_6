@@ -325,7 +325,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="内部水位：\n外部水位:\n烟感值：\n内部温度\n外部温度:\n环境板版本：\n风扇开启数量："
+                        android:text="内部水位：\n外部水位:\n烟感值：\n内部温度\n外部温度:\n环境板版本：\n风扇工作模式：\n风扇1：\n风扇2："
                         android:textColor="#666666"
                         android:textSize="12sp"></TextView>
 

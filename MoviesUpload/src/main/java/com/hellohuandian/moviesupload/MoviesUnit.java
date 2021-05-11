@@ -40,7 +40,7 @@ public class MoviesUnit {
 
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
-    private int mId=-1;
+    private int mId = -1;
     private String mPath;
     private static String msPath;
 
@@ -224,7 +224,7 @@ public class MoviesUnit {
     }
 
 
-    public boolean onResume(FrameLayout preview) {
+    public boolean onResume(final FrameLayout preview) {
 
         if (mCamera != null) {
             mCamera.release();
@@ -253,14 +253,12 @@ public class MoviesUnit {
 
     private void releaseMediaRecorder() {
         if (mMediaRecorder != null) {
-            try{
+            try {
                 mMediaRecorder.reset();   // clear recorder configuration
                 mMediaRecorder.release(); // release the recorder object
                 mMediaRecorder = null;
                 mCamera.lock();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -281,7 +279,7 @@ public class MoviesUnit {
         for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
             Camera.getCameraInfo(camIdx, cameraInfo); // get camerainfo
             if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                LogUtil.I("摄像头："+camIdx);
+                LogUtil.I("摄像头：" + camIdx);
                 // 代表摄像头的方位，目前有定义值两个分别为CAMERA_FACING_FRONT前置和CAMERA_FACING_BACK后置
                 return camIdx;
             }
@@ -406,12 +404,11 @@ public class MoviesUnit {
             super(context);
             mCamera = camera;
             mId = id;
-
             // Install a SurfaceHolder.Callback so we get notified when the
             // underlying surface is created and destroyed.
             mHolder = getHolder();
             mHolder.addCallback(this);
-            // deprecated setting, but required on Android versions prior to 3.0
+//            // deprecated setting, but required on Android versions prior to 3.0
             mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         }
 
@@ -466,7 +463,8 @@ public class MoviesUnit {
         public void removeCallBack() {
             mHolder.removeCallback(this);
         }
-        public void restartSurfaceview(){
+
+        public void restartSurfaceview() {
             surfaceDestroyed(mHolder);
             surfaceCreated(mHolder);
         }

@@ -309,7 +309,9 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     private boolean isAutoSetCurrentDetection;
     private boolean isAllowCloseAcdcs = true;
 
-    public static boolean isAutoControlAirfan = true;
+    public static String m_fanauto = "1";
+    public static String m_fan1tem = "30";
+    public static String m_fan2tem = "40";
 
     public static Set<String> upgrading = new HashSet<>();
     public volatile boolean upgradingStatus;
@@ -879,63 +881,62 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         }
                     }
 
-                    if (isAutoControlAirfan) {
-                        int waitPower = ACDC_gonglv[0] * 10 + ACDC_gonglv[1] * 10 - remainingTotalPower2[0] * 10;
-                        if (waitPower >= 500) {
-                            //在线,大于-40度认为在线
-                            if (sensorDataBean.getTemperature1() >= -40) {
-
-                                if (sensorDataBean.getTemperature1() >= 30 && sensorDataBean.getTemperature1() <= 40) {
-                                    if (sensorDataBean.getAirFan1Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                    }
-                                    if (sensorDataBean.getAirFan2Status() == 0) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                    }
-                                } else if (sensorDataBean.getTemperature1() > 40) {
-                                    if (sensorDataBean.getAirFan1Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                    }
-                                    if (sensorDataBean.getAirFan2Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
-                                    }
-                                } else {
-                                    if (sensorDataBean.getAirFan1Status() == 0) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
-                                    }
-                                    if (sensorDataBean.getAirFan2Status() == 0) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                    }
+                    int waitPower = ACDC_gonglv[0] * 10 + ACDC_gonglv[1] * 10 - remainingTotalPower2[0] * 10;
+                    if (waitPower >= 500) {
+                        //在线,大于-40度认为在线
+                        if (sensorDataBean.getTemperature1() >= -40) {
+                            final int minTep = TextUtils.isEmpty(m_fan1tem) ? 30 : Integer.parseInt(m_fan1tem);
+                            final int maxTep = TextUtils.isEmpty(m_fan2tem) ? 40 : Integer.parseInt(m_fan2tem);
+                            if (sensorDataBean.getTemperature1() >= minTep && sensorDataBean.getTemperature1() <= maxTep) {
+                                if (sensorDataBean.getAirFan1Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                }
+                                if (sensorDataBean.getAirFan2Status() == 0) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                                }
+                            } else if (sensorDataBean.getTemperature1() > maxTep) {
+                                if (sensorDataBean.getAirFan1Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                }
+                                if (sensorDataBean.getAirFan2Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
                                 }
                             } else {
-                                //不在线，就是温度传感器不在线
-                                if (waitPower <= 3000) {
-                                    //小于3000w开一个，否则开两个
-                                    if (sensorDataBean.getAirFan1Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                    }
-                                    if (sensorDataBean.getAirFan2Status() == 0) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
-                                    }
+                                if (sensorDataBean.getAirFan1Status() == 0) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
                                 }
-                                if (waitPower > 3000) {
-                                    if (sensorDataBean.getAirFan1Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
-                                    }
-                                    if (sensorDataBean.getAirFan2Status() == 1) {
-                                        DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
-                                    }
+                                if (sensorDataBean.getAirFan2Status() == 0) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
                                 }
                             }
-
                         } else {
-                            // TODO: 2020/8/6小于500W都关闭
-                            if (sensorDataBean.getAirFan1Status() == 0) {
-                                DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
+                            //不在线，就是温度传感器不在线
+                            if (waitPower <= 3000) {
+                                //小于3000w开一个，否则开两个
+                                if (sensorDataBean.getAirFan1Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                }
+                                if (sensorDataBean.getAirFan2Status() == 0) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                                }
                             }
-                            if (sensorDataBean.getAirFan2Status() == 0) {
-                                DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
+                            if (waitPower > 3000) {
+                                if (sensorDataBean.getAirFan1Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_OPEN);
+                                }
+                                if (sensorDataBean.getAirFan2Status() == 1) {
+                                    DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_OPEN);
+                                }
                             }
+                        }
+
+                    } else {
+                        // TODO: 2020/8/6小于500W都关闭
+                        if (sensorDataBean.getAirFan1Status() == 0) {
+                            DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._1_CLOSE);
+                        }
+                        if (sensorDataBean.getAirFan2Status() == 0) {
+                            DeviceSwitchController.getInstance().controlAirFan(DeviceSwitcher.AIR_FAN._2_CLOSE);
                         }
                     }
 
@@ -1078,6 +1079,29 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        m_fanauto = cabInfoSp.opt_fanauto();
+        if (!TextUtils.isEmpty(m_fanauto)) {
+
+            switch (m_fanauto) {
+                case "1":
+                    m_fan1tem = "30";
+                    m_fan2tem = "40";
+                    break;
+                case "-1":
+                    m_fan1tem = cabInfoSp.opt_fan1tem();
+                    m_fan2tem = cabInfoSp.opt_fan2tem();
+                    break;
+
+            }
+        } else {
+            m_fan1tem = "30";
+            m_fan2tem = "40";
+        }
+    }
 
     private void registerNetworkCallback() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -2227,7 +2251,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     protected void onPause() {
         super.onPause();
         if (moviesUnit != null && camera_preview != null) {
-            moviesUnit.onPause();
+//            moviesUnit.onPause();
         }
     }
 
@@ -3368,6 +3392,9 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 String number = jsonObject.getString("number");
                 String cabid = jsonObject.getString("cabid");
                 String isHeat = jsonObject.getString("isheat");//是否加热
+                String fanauto = jsonObject.getString("fanauto");//风扇控制模式
+                String fan1tem = jsonObject.getString("fan1tem");//风扇1温控
+                String fan2tem = jsonObject.getString("fan2tem");//风扇2温控
 
                 cabid_title = cabid;
                 cabInfoSp.setLongLinkNumber(cabid);
@@ -3409,6 +3436,38 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             setUiHandler.sendMessage(message_ui);
                         }
                     } catch (Exception e) {
+                    }
+
+                    // TODO: 2021/5/10 保存温度参数，同时作用到环境板2S周期判断逻辑上
+                    if (!TextUtils.equals(cabInfoSp.opt_fanauto(), fanauto)) {
+                        cabInfoSp.save_fanauto(fanauto);
+
+                        String info = null;
+                        switch (fanauto) {
+                            case "1":
+                                info = "切换风扇自动控制~";
+                                m_fan1tem = "30";
+                                m_fan2tem = "40";
+                                break;
+                            case "-1":
+                                info = "切换风扇手动控制~";
+                                break;
+                        }
+                        if (!TextUtils.isEmpty(info)) {
+                            LogUtil.I("温度控制：" + info);
+                            showDialogInfo(info, "10", "1");
+                        }
+                    }
+
+                    switch (fanauto) {
+                        case "-1":
+                            LogUtil.I("温度控制：fan1tem：" + fan1tem);
+                            LogUtil.I("温度控制：fan2tem：" + fan2tem);
+                            m_fan1tem = fan1tem;
+                            m_fan2tem = fan2tem;
+                            cabInfoSp.save_fan1tem(fan1tem);
+                            cabInfoSp.save_fan2tem(fan2tem);
+                            break;
                     }
                 }
 

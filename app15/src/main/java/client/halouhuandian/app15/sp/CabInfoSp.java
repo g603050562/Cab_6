@@ -10,7 +10,7 @@ public class CabInfoSp {
 
     public CabInfoSp(Activity activity) {
         this.activity = activity;
-        sharedPreferences = activity.getSharedPreferences("CabInfo",  Activity.MODE_WORLD_READABLE);
+        sharedPreferences = activity.getSharedPreferences("CabInfo", Activity.MODE_WORLD_READABLE);
     }
 
     /**
@@ -138,44 +138,43 @@ public class CabInfoSp {
     }
 
 
-
     /**
      * 设置sp里面 电柜位置
      */
-    public void setAddress_1(String chargeMode){
+    public void setAddress_1(String chargeMode) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("setAddress", chargeMode);
         editor.commit();
     }
+
     /**
      * 获取sp里面 电柜位置
+     *
      * @return
      */
-    public String getAddress_1(){
-        String longLinkCabNumber = sharedPreferences.getString("setAddress","0");
+    public String getAddress_1() {
+        String longLinkCabNumber = sharedPreferences.getString("setAddress", "0");
         return longLinkCabNumber;
     }
 
     /**
      * 设置sp里面 电柜版本
      */
-    public void setVersion(String chargeMode){
+    public void setVersion(String chargeMode) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("setVersion", chargeMode);
         editor.commit();
     }
+
     /**
      * 获取sp里面 电柜版本
+     *
      * @return
      */
-    public String getVersion(){
-        String longLinkCabNumber = sharedPreferences.getString("setVersion","0");
+    public String getVersion() {
+        String longLinkCabNumber = sharedPreferences.getString("setVersion", "0");
         return longLinkCabNumber;
     }
-
-
-
-
 
 
     private static final String CURRENT_THRESHOLD = "currentThreshold";
@@ -219,5 +218,35 @@ public class CabInfoSp {
 
     public String optHeatMode() {
         return sharedPreferences.getString("isHeat", "2");
+    }
+
+    public void save_fanauto(String fanauto) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("fanauto", fanauto);
+        editor.commit();
+    }
+
+    public String opt_fanauto() {
+        return sharedPreferences.getString("fanauto", "1");
+    }
+
+    public void save_fan1tem(String fan1tem) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("fan1tem", fan1tem);
+        editor.commit();
+    }
+
+    public String opt_fan1tem() {
+        return sharedPreferences.getString("fan1tem", "30");
+    }
+
+    public void save_fan2tem(String fan2tem) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("fan2tem", fan2tem);
+        editor.commit();
+    }
+
+    public String opt_fan2tem() {
+        return sharedPreferences.getString("fan2tem", "40");
     }
 }

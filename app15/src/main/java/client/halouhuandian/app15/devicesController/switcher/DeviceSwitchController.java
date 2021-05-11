@@ -43,7 +43,6 @@ public final class DeviceSwitchController implements Consumer<byte[]> {
     }
 
     public void controlAirFan(@DeviceSwitcher.AIR_FAN int cmd) {
-        A_Main2.isAutoControlAirfan = false;
         deviceSwitcher.setCmd(cmd);
     }
 
