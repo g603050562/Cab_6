@@ -25,13 +25,16 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
-    compile project(path: ':PubFunction')
+    implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    implementation project(path: ':PubFunction')
 
-    compile files('libs/isoparser-1.0.6.jar')
-    compile files('libs/aspectjrt-1.7.3.jar')
+    implementation files('libs/isoparser-1.0.6.jar')
+    implementation files('libs/aspectjrt-1.7.3.jar')
+    //录制视频
+    implementation 'com.wonderkiln:camerakit:0.13.2'
+    implementation 'com.gcssloop.widget:rclayout:1.8.1'
 
 //    录制视频
 //    implementation 'com.wonderkiln:camerakit:0.13.2'

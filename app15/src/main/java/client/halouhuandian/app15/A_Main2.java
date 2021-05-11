@@ -27,6 +27,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.util.Consumer;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
@@ -60,6 +61,7 @@ import com.hellohuandian.app.httpclient.IFHttpOutLineRentBatteryUploadInfoConfir
 import com.hellohuandian.app.httpclient.IFHttpUploadBatteryInfoListener;
 import com.hellohuandian.app.httpclient.IFHttpUploadBatteryInfoToRentListener;
 import com.hellohuandian.app.httpclient.longLink.OpenLongLink;
+import com.hellohuandian.moviesUpload_2.MoviesUnit_2;
 import com.hellohuandian.moviesupload.HttpUploadMovies;
 import com.hellohuandian.moviesupload.HttpUploadMoviesPath;
 import com.hellohuandian.moviesupload.MoviesCreateFile;
@@ -76,6 +78,7 @@ import com.hellohuandian.pubfunction.Unit.PubFunction;
 import com.hellohuandian.pubfunction.Unit.Unit;
 import com.hellohuandian.pubfunction.animation.ExchangeAnimation;
 import com.squareup.picasso.Picasso;
+import com.wonderkiln.camerakit.CameraView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -597,12 +600,16 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
 
 
     //录制视频
-    private MoviesUnit moviesUnit = null;
-    private FrameLayout camera_preview;
+    private MoviesUnit_2 moviesUnit_2 = null;
+    private CameraView camera_preview_2;
+    private LinearLayout camera_preview_bg;
+    private boolean isHasCamera = false;
+
     private LinearLayout camera_preview_panel;
-    private TextView tv_cameraErrorInfo;
+    private TextView camera_preview_panel_text;
     private LinearLayout uploadmoviespanel;
     private ProgressBar uploadPbar;
+    private TextView uploadPbarTitle;
 
     private WebView adv_webview;
 
@@ -753,6 +760,15 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
         handler();
         findView();
         main();
+
+        isHasCamera = Unit.hasCamera();
+        if (isHasCamera == true) {
+            LayoutInflater inflater = LayoutInflater.from(activity);
+            View view = (LinearLayout) inflater.inflate(R.layout.activity_main_camera, null);
+            camera_preview_bg.addView(view);
+            camera_preview_2 = view.findViewById(R.id.camera_preview);
+            moviesUnit_2 = new MoviesUnit_2(activity, camera_preview_2);
+        }
 
         progressDialog_4 = new ProgressDialog_4(activity, dialog_panel, dialog_time, dialog_info, speakHandler, info_panel);
         progressDialog_4.show("电柜正在初始化，请稍候！", 30, 1);
@@ -1200,11 +1216,13 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
         t_9 = this.findViewById(R.id.t_9);
 
         tel_text = this.findViewById(R.id.tel_text_1);
-        camera_preview = findViewById(R.id.camera_preview);
         camera_preview_panel = this.findViewById(R.id.camera_preview_panel);
-        tv_cameraErrorInfo = this.findViewById(R.id.camera_preview_panel_text);
+        camera_preview_panel_text = this.findViewById(R.id.camera_preview_panel_text);
+        camera_preview_bg = this.findViewById(R.id.camera_preview_bg);
         uploadmoviespanel = this.findViewById(R.id.uploadmoviespanel);
         uploadPbar = this.findViewById(R.id.p_bar);
+        uploadPbarTitle = this.findViewById(R.id.uploadPbarTitle);
+
 
         dialog_panel = this.findViewById(R.id.dialog_panel);
         dialog_info = this.findViewById(R.id.dialog_info);
@@ -2185,44 +2203,29 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
 
-                moviesUnit = new MoviesUnit(activity);
+                boolean is_movies;
 
+                if (PubFunction.getExtSDCardPathList().size() <= 1 || isHasCamera == false) {
+                    is_movies = false;
+                } else {
+                    is_movies = true;
+                }
+                System.out.println("movies：   反馈 - " + is_movies + "   SD卡数量 - " + PubFunction.getExtSDCardPathList().size());
 
-                LogUtil.I("卡数量：" + PubFunction.getExtSDCardPath().size());
-                try {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    if (moviesUnit.getmId() == -1 || !Unit.hasCamera()) {
-                        //没有摄像头
-                        camera_preview_panel.setVisibility(View.VISIBLE);
-                        stringBuilder.append("#1");
+                if (is_movies == true && PubFunction.getExtSDCardPathList().size() > 1) {
+                    camera_preview_panel.setVisibility(View.GONE);
+                } else {
+                    camera_preview_panel.setVisibility(View.VISIBLE);
+                    camera_preview_panel_text.setText("视频监控中");
+                    if (isHasCamera == false) {
+                        camera_preview_panel_text.setText(camera_preview_panel_text.getText() + "#1");
                     }
-
-                    if (!PubFunction.getExtSDCardPathList().contains("/mnt/external_sd")) {
-                        stringBuilder.append("#2");
+                    if (PubFunction.getExtSDCardPathList().size() <= 1) {
+                        camera_preview_panel_text.setText(camera_preview_panel_text.getText() + "#2");
                     }
-                    final String errorInfo = stringBuilder.toString();
-                    if (!TextUtils.isEmpty(errorInfo)) {
-                        tv_cameraErrorInfo.setText(errorInfo);
-                    }
-
-                    if (TextUtils.isEmpty(errorInfo)) {
-                        boolean is_movies = moviesUnit.onResume(camera_preview);
-                        if (is_movies == true) {
-                            camera_preview_panel.setVisibility(View.GONE);
-                            moviesUnit.moviesStart();
-                        } else {
-                            camera_preview_panel.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                } catch (
-                        Exception e) {
-                    e.printStackTrace();
                 }
             }
-        }
-
-        ;
+        };
 
         otherInfo_8_Handler = new
 
@@ -2233,16 +2236,14 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                         String t_8_str = msg.getData().getString("t_8");
                         t_8.setText(t_8_str + "W");
                     }
-                }
-
-        ;
+                };
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (moviesUnit != null && camera_preview != null) {
-            moviesUnit.onResume(camera_preview);
+        if (isHasCamera == true) {
+            moviesUnit_2.onResume();
         }
         isAutoSetCurrentDetection = cabInfoSp.optAutoSetCurrentDetectionStatus();
     }
@@ -2250,8 +2251,8 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     @Override
     protected void onPause() {
         super.onPause();
-        if (moviesUnit != null && camera_preview != null) {
-//            moviesUnit.onPause();
+        if (isHasCamera == true) {
+            moviesUnit_2.onPause();
         }
     }
 

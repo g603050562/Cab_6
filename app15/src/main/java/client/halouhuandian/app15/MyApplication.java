@@ -2,13 +2,16 @@ package client.halouhuandian.app15;
 
 import android.app.Activity;
 import android.app.Application;
+import android.arch.lifecycle.Observer;
 import android.os.Build;
 
+import com.gcssloop.rclayout.BuildConfig;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Observable;
 
 import client.halouhuandian.app15.serial_port.IFCanBusResultListener;
 import client.halouhuandian.app15.serial_port.IFSerialPortResultListener;
@@ -157,5 +160,6 @@ public class MyApplication extends Application implements IFCanBusResultListener
             }
         }
     }
+
 }
 
