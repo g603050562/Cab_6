@@ -88,7 +88,6 @@ public final class SettingConfig implements MyApplication.IFResultAppLinstener {
 //        _SETTING[14] = (byte) (int_batteryInnerStartTemperature & 0xFF);
 //        _SETTING[15] = (byte) ((int_batteryInnerStartTemperature >> 8) & 0xFF);
 
-        LogUtil.I("设置加热：" + StringFormatHelper.getInstance().toHexString(_SETTING));
         send9Address();
     }
 
@@ -99,7 +98,6 @@ public final class SettingConfig implements MyApplication.IFResultAppLinstener {
         setting();
         _SETTING[9] = 0x04;
         _SETTING[10] = 0x01;
-        LogUtil.I("停用加热：" + StringFormatHelper.getInstance().toHexString(_SETTING));
         send9Address();
     }
 
@@ -125,7 +123,6 @@ public final class SettingConfig implements MyApplication.IFResultAppLinstener {
         Arrays.fill(_SETTING, 11, _SETTING.length, (byte) 0x00);
 
         _SETTING[1] = (byte) doorNumber;
-        LogUtil.I("禁用完毕:" + StringFormatHelper.getInstance().toHexString(_SETTING));
         CanSender.getInstance().send(_SETTING);
     }
 
@@ -168,7 +165,6 @@ public final class SettingConfig implements MyApplication.IFResultAppLinstener {
     private void send9Address() {
         for (int address = 1, len = 9; address <= len; address++) {
             _SETTING[1] = (byte) address;
-            LogUtil.I("读取加热：" + StringFormatHelper.getInstance().toHexString(_SETTING));
             CanSender.getInstance().send(_SETTING);
         }
     }
@@ -179,21 +175,17 @@ public final class SettingConfig implements MyApplication.IFResultAppLinstener {
             if ((canData[3] & 0xFF) == 0x98 && (canData[2] & 0xFF) == PF && (canData[1] & 0xFF) == 0x65 && ((canData[0] & 0xFF) >= 0x01 && (canData[0] & 0xFF) <= 0x09)) {
 
                 if ((canData[8] & 0xFF) == 0x01) {
-                    LogUtil.I("回复信息：" + StringFormatHelper.getInstance().toHexString(canData));
                 } else
                     //判断是否0x02(读取指令回复)
                     if ((canData[8] & 0xFF) == 0x02) {
                         switch ((canData[9] & 0xFF)) {
                             case 1:
-                                LogUtil.I("温度信息：" + StringFormatHelper.getInstance().toHexString(canData));
                                 parseTemperature(canData);
                                 break;
                             case 2:
-                                LogUtil.I("禁用信息：" + StringFormatHelper.getInstance().toHexString(canData));
                                 parseForbiddenUseEnable(canData);
                                 break;
                             case 3:
-                                LogUtil.I("复位信息：" + StringFormatHelper.getInstance().toHexString(canData));
                                 parseReset(canData);
                                 break;
                         }

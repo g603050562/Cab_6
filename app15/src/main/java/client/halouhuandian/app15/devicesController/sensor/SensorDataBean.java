@@ -3,6 +3,8 @@ package client.halouhuandian.app15.devicesController.sensor;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
 
+import com.hellohuandian.pubfunction.Unit.LogUtil;
+
 /**
  * Author:      Lee Yeung
  * Create Date: 2020/3/27

@@ -65,7 +65,6 @@ import com.hellohuandian.moviesUpload_2.MoviesUnit_2;
 import com.hellohuandian.moviesupload.HttpUploadMovies;
 import com.hellohuandian.moviesupload.HttpUploadMoviesPath;
 import com.hellohuandian.moviesupload.MoviesCreateFile;
-import com.hellohuandian.moviesupload.MoviesUnit;
 import com.hellohuandian.pubfunction.BaseStation.GSMCellLocation;
 import com.hellohuandian.pubfunction.DBM.CurrentNetDBM;
 import com.hellohuandian.pubfunction.DBM.IFCurrentNetDBMLinstener;
@@ -602,7 +601,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
     //录制视频
     private MoviesUnit_2 moviesUnit_2 = null;
     private CameraView camera_preview_2;
-    private LinearLayout camera_preview_bg;
+    private FrameLayout camera_preview_bg;
     private boolean isHasCamera = false;
 
     private LinearLayout camera_preview_panel;
@@ -764,7 +763,7 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
         isHasCamera = Unit.hasCamera();
         if (isHasCamera == true) {
             LayoutInflater inflater = LayoutInflater.from(activity);
-            View view = (LinearLayout) inflater.inflate(R.layout.activity_main_camera, null);
+            View view = (LinearLayout) inflater.inflate(R.layout.activity_main_camera, null, false);
             camera_preview_bg.addView(view);
             camera_preview_2 = view.findViewById(R.id.camera_preview);
             moviesUnit_2 = new MoviesUnit_2(activity, camera_preview_2);
@@ -803,6 +802,13 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                             showDialogInfo("电柜初始化成功！", "3", "2");
                             jumpAppProgram();
                             onCreateHandler.sendMessage(new Message());
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    SystemClock.sleep(3000);
+                                    SensorController.getInstance().setCurrentBoardThreshold(cabInfoSp.optCurrentThreshold());
+                                }
+                            }).start();
                         }
 
                         count = count + 1;
@@ -4393,11 +4399,15 @@ public class A_Main2 extends Activity implements OnClickListener, MyApplication.
                 try {
                     SetPushRodLitValModel setPushRodLitValModel = gson.fromJson(orderString, SetPushRodLitValModel.class);
                     if (setPushRodLitValModel.getLitVal() >= 1.5f && setPushRodLitValModel.getLitVal() <= 10) {
-                        isAutoSetCurrentDetection = setPushRodLitValModel.getIsAuto() == 1;
                         cabInfoSp.setAutoSetCurrentDetectionStatus(setPushRodLitValModel.getIsAuto() == 1);
-                        if (setPushRodLitValModel.getIsAuto() == -1) {
+                        isAutoSetCurrentDetection = setPushRodLitValModel.getIsAuto() == 1;
+                        if (isAutoSetCurrentDetection) {
+                            showDialogInfo("设置电流板自动模式", "5", "1");
+                        } else if (setPushRodLitValModel.getIsAuto() == -1) {
+                            showDialogInfo("设置电流板手动模式", "5", "1");
                             cabInfoSp.setCurrentThreshold(setPushRodLitValModel.getLitVal());
-                            CurrentDetectionController.getInstance().setCurrentDetection(setPushRodLitValModel.getLitVal());
+                            SensorController.getInstance().setCurrentBoardThreshold(setPushRodLitValModel.getLitVal());
+                            CurrentDetectionController.getInstance().enabledCurrentDetection(setPushRodLitValModel.getLitVal(), 800, 1000);
                         } else {
                             temperature = -100;
                         }

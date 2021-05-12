@@ -6,6 +6,7 @@ import com.hellohuandian.pubfunction.Unit.LogUtil;
 
 import client.halouhuandian.app15.MyApplication;
 import client.halouhuandian.app15.devicesController.CanSender;
+import client.halouhuandian.app15.devicesController.sensor.SensorController;
 
 /**
  * Author:      Lee Yeung
@@ -125,7 +126,7 @@ public final class CurrentDetectionController implements MyApplication.IFResultA
     public void setCurrentDetection(float temperature) {
         float litVal = 3;
         if (temperature >= 25) {
-            litVal = 3;
+            litVal = 4;
         } else if (temperature >= 10) {
             litVal = 4;
             litVal += 1;
@@ -144,6 +145,7 @@ public final class CurrentDetectionController implements MyApplication.IFResultA
         }
 
         if (currentThreshold != litVal) {
+            SensorController.getInstance().setCurrentBoardThreshold(litVal);
             enabledCurrentDetection(litVal, 800, 1000);
             LogUtil.I("电流板设置阈值：" + litVal);
         }

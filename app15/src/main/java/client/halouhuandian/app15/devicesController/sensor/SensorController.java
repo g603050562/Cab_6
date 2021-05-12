@@ -2,8 +2,11 @@ package client.halouhuandian.app15.devicesController.sensor;
 
 import android.support.v4.util.Consumer;
 
+import com.hellohuandian.pubfunction.Unit.LogUtil;
+
 import client.halouhuandian.app15.MyApplication;
 import client.halouhuandian.app15.StringFormatHelper;
+import client.halouhuandian.app15.devicesController.switcher.DeviceSwitchController;
 
 /**
  * Author:      Lee Yeung
@@ -42,6 +45,11 @@ public final class SensorController implements MyApplication.IFResultAppLinstene
     private final SensorParser sensorParser = new SensorParser();
     private Consumer<SensorDataBean> consumer;
     private short orderOffset;
+
+    private byte PS = 0x66;
+    private byte SA = 0x65;
+    private byte PF = (byte) 0xB0;
+    private byte LEN = 0x08;
 
     private SensorController() {
     }
@@ -112,5 +120,55 @@ public final class SensorController implements MyApplication.IFResultAppLinstene
 
     public void setUpdateConsumer(Consumer<SensorDataBean> consumer) {
         this.consumer = consumer;
+    }
+
+    public void setCurrentBoardThreshold(float threshold) {
+        // TODO: 2021/3/4 如果不是B2一体电流板的环境板
+        if (!sensorDataBean.isExistCurrentBoardDevice()) {
+            return;
+        }
+        final byte[] envCmdBytes = {SA, PS, PF, (byte) 0x98,
+                LEN,//数据长度
+                0x00, 0x00, 0x00,//远程帧，错误帧，过载帧
+                (byte) 0xB0, 0x05, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00};
+
+        if (envCmdBytes != null) {
+            byte[] envCmdContentBytes = new byte[]{(byte) 0xB0, 0x05, 0x00, 0x0C, 0x00, 0x0A, 0x00, 0x00, 0x50, 0x64, 0x00, 0x00};
+            int thresholdVal = (int) (threshold * 100);
+            envCmdContentBytes[6] = (byte) ((thresholdVal >> 8) & 0xFF);
+            envCmdContentBytes[7] = (byte) (thresholdVal & 0xFF);
+            if (envCmdContentBytes != null && envCmdContentBytes.length >= 2) {
+                final short crc = crc16(envCmdContentBytes, 0, envCmdContentBytes.length - 2);
+                envCmdContentBytes[10] = (byte) (crc & 0xFF);
+                envCmdContentBytes[11] = (byte) (crc >> 8 & 0xFF);
+
+                try {
+                    envCmdBytes[8] = 0x10;
+                    System.arraycopy(envCmdContentBytes, 0, envCmdBytes, 9, 7);
+                    DeviceSwitchController.getInstance().accept(envCmdBytes);
+
+                    final byte[] envCmdBytes2 = {SA, PS, PF, (byte) 0x98,
+                            6,//数据长度
+                            0x00, 0x00, 0x00,//远程帧，错误帧，过载帧
+                            (byte) 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                    envCmdBytes2[8] = 0x20;
+                    System.arraycopy(envCmdContentBytes, 7, envCmdBytes2, 9, envCmdContentBytes.length - 7);
+                    DeviceSwitchController.getInstance().accept(envCmdBytes2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private final short crc16(byte[] data, int offset, int len) {
+        int crc = 0xFFFF;
+        int j;
+        for (int i = offset; i < len; i++) {
+            crc = ((crc & 0xFF00) | (crc & 0x00FF) ^ (data[i] & 0xFF));
+            for (j = 0; j < 8; j++, crc = ((crc & 0x0001) > 0) ? (crc >> 1) ^ 0xA001 : (crc >> 1)) ;
+        }
+
+        return (short) (crc & 0xFFFF);
     }
 }

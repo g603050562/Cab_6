@@ -196,8 +196,7 @@ public class CabInfoSp {
      * @return
      */
     public float optCurrentThreshold() {
-//        return sharedPreferences.getFloat("CURRENT_THRESHOLD", 10f);
-        return sharedPreferences.getFloat("CURRENT_THRESHOLD", 3f);
+        return sharedPreferences.getFloat("CURRENT_THRESHOLD", 4f);
     }
 
     public void setAutoSetCurrentDetectionStatus(boolean isAutoSetCurrentDetectionStatus) {

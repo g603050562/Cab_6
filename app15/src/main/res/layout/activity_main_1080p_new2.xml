@@ -1123,7 +1123,7 @@
                     android:background="@drawable/button_corners_true_orange_radius_5">
 
                     <FrameLayout
-                        android:id="@+id/camera_preview"
+                        android:id="@+id/camera_preview_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#333333" />

@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.hellohuandian.pubfunction.ProgressDialog.ProgressDialog;
 import com.hellohuandian.pubfunction.ProgressDialog.ProgressDialog_3;
+import com.hellohuandian.pubfunction.Unit.LogUtil;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -92,7 +93,27 @@ public class A_Admin extends Activity implements View.OnClickListener {
                     .append(SensorController.getInstance().getSensorDataBean().getAirFan2Status() == 0 ? "打开" : "关闭")
                     .toString());
 
-            updateHandler.sendEmptyMessageDelayed(0, 2000);
+            if (SensorController.getInstance().getSensorDataBean().isExistCurrentBoardDevice()) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.setLength(0);
+                tvDetectionBoardInfo.setText(stringBuilder.append(SensorController.getInstance().getSensorDataBean().currentBoardRunningStatus_String)
+                        .append(System.lineSeparator())
+                        .append(SensorController.getInstance().getSensorDataBean().deviceVoltage_String)
+                        .append(System.lineSeparator())
+                        .append(SensorController.getInstance().getSensorDataBean().deviceCurrent_String)
+                        .append(System.lineSeparator())
+                        .append(System.lineSeparator())
+                        .append("SV:")
+                        .append(SensorController.getInstance().getSensorDataBean().getSoftwareVersion())
+                        .append("/")
+                        .append("HV:")
+                        .append(Integer.toHexString(SensorController.getInstance().getSensorDataBean().getHardwareVersion()))
+                        .append(System.lineSeparator())
+                        .append(SensorController.getInstance().getSensorDataBean().currentBoardThreshold_String)
+                        .append(System.lineSeparator())
+                        .append(cabInfoSp.optAutoSetCurrentDetectionStatus() ? "自动" : "手动")
+                        .toString());
+            }
 
             if (cabInfoSp != null) {
                 switch (cabInfoSp.optHeatMode()) {
@@ -107,6 +128,9 @@ public class A_Admin extends Activity implements View.OnClickListener {
                         break;
                 }
             }
+
+
+            updateHandler.sendEmptyMessageDelayed(0, 2000);
         }
     };
 
@@ -275,57 +299,82 @@ public class A_Admin extends Activity implements View.OnClickListener {
             write_uid.setVisibility(View.VISIBLE);
         }
 
-        CurrentDetectionModel currentDetectionModel = CurrentDetectionController.getInstance().optCurrentDetectionModel();
-        if (currentDetectionModel != null) {
+        SensorDataBean sensorDataBean = SensorController.getInstance().getSensorDataBean();
+        if (sensorDataBean != null && sensorDataBean.isExistCurrentBoardDevice()) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.setLength(0);
-            tvDetectionBoardInfo.setText(stringBuilder.append(currentDetectionModel.status_String)
+            tvDetectionBoardInfo.setText(stringBuilder.append(sensorDataBean.currentBoardRunningStatus_String)
                     .append(System.lineSeparator())
-                    .append(currentDetectionModel.outVoltage_String)
+                    .append(sensorDataBean.deviceVoltage_String)
                     .append(System.lineSeparator())
-                    .append(currentDetectionModel.outCurrent_String)
+                    .append(sensorDataBean.deviceCurrent_String)
                     .append(System.lineSeparator())
-                    .append(currentDetectionModel.outWarning_String)
                     .append(System.lineSeparator())
                     .append("SV:")
-                    .append(currentDetectionModel.getSoftwareVersion())
+                    .append(sensorDataBean.getSoftwareVersion())
                     .append("/")
                     .append("HV:")
-                    .append(currentDetectionModel.getHardwareVersion())
+                    .append(sensorDataBean.getHardwareVersion())
                     .append(System.lineSeparator())
-                    .append(currentDetectionModel.isExistDevice() ? currentThreshold + "A" : "").toString());
-        }
+                    .append(sensorDataBean.currentBoardThreshold_String)
+                    .append(System.lineSeparator())
+                    .append(cabInfoSp.optAutoSetCurrentDetectionStatus() ? "自动" : "手动")
+                    .toString());
 
-        CurrentDetectionController.getInstance().setConsumer(new Consumer<CurrentDetectionModel>() {
-            private StringBuilder stringBuilder = new StringBuilder();
 
-            @Override
-            public void accept(final CurrentDetectionModel currentDetectionModel) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        stringBuilder.setLength(0);
-                        tvDetectionBoardInfo.setText(stringBuilder.append(currentDetectionModel.status_String)
-                                .append(System.lineSeparator())
-                                .append(currentDetectionModel.outVoltage_String)
-                                .append(System.lineSeparator())
-                                .append(currentDetectionModel.outCurrent_String)
-                                .append(System.lineSeparator())
-                                .append(currentDetectionModel.outWarning_String)
-                                .append(System.lineSeparator())
-                                .append("SV:")
-                                .append(currentDetectionModel.getSoftwareVersion())
-                                .append("/")
-                                .append("HV:")
-                                .append(currentDetectionModel.getHardwareVersion())
-                                .append(System.lineSeparator())
-                                .append(currentThreshold + "A")
-                                .append(System.lineSeparator())
-                                .append(cabInfoSp.optAutoSetCurrentDetectionStatus() ? "自动" : "手动").toString());
-                    }
-                });
+        } else {
+            CurrentDetectionModel currentDetectionModel = CurrentDetectionController.getInstance().optCurrentDetectionModel();
+            if (currentDetectionModel != null) {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.setLength(0);
+                tvDetectionBoardInfo.setText(stringBuilder.append(currentDetectionModel.status_String)
+                        .append(System.lineSeparator())
+                        .append(currentDetectionModel.outVoltage_String)
+                        .append(System.lineSeparator())
+                        .append(currentDetectionModel.outCurrent_String)
+                        .append(System.lineSeparator())
+                        .append(currentDetectionModel.outWarning_String)
+                        .append(System.lineSeparator())
+                        .append("SV:")
+                        .append(currentDetectionModel.getSoftwareVersion())
+                        .append("/")
+                        .append("HV:")
+                        .append(currentDetectionModel.getHardwareVersion())
+                        .append(System.lineSeparator())
+                        .append(currentDetectionModel.isExistDevice() ? currentThreshold + "A" : "").toString());
             }
-        });
+
+            CurrentDetectionController.getInstance().setConsumer(new Consumer<CurrentDetectionModel>() {
+                private StringBuilder stringBuilder = new StringBuilder();
+
+                @Override
+                public void accept(final CurrentDetectionModel currentDetectionModel) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            stringBuilder.setLength(0);
+                            tvDetectionBoardInfo.setText(stringBuilder.append(currentDetectionModel.status_String)
+                                    .append(System.lineSeparator())
+                                    .append(currentDetectionModel.outVoltage_String)
+                                    .append(System.lineSeparator())
+                                    .append(currentDetectionModel.outCurrent_String)
+                                    .append(System.lineSeparator())
+                                    .append(currentDetectionModel.outWarning_String)
+                                    .append(System.lineSeparator())
+                                    .append("SV:")
+                                    .append(currentDetectionModel.getSoftwareVersion())
+                                    .append("/")
+                                    .append("HV:")
+                                    .append(currentDetectionModel.getHardwareVersion())
+                                    .append(System.lineSeparator())
+                                    .append(currentThreshold + "A")
+                                    .append(System.lineSeparator())
+                                    .append(cabInfoSp.optAutoSetCurrentDetectionStatus() ? "自动" : "手动").toString());
+                        }
+                    });
+                }
+            });
+        }
     }
 
     private void handler() {
