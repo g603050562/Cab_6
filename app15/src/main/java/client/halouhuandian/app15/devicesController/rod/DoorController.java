@@ -6,8 +6,6 @@ import android.text.TextUtils;
 import java.util.concurrent.TimeUnit;
 
 import client.halouhuandian.app15.A_Main2;
-import client.halouhuandian.app15.devicesController.currentDetectionBoard.CurrentDetectionController;
-import client.halouhuandian.app15.devicesController.currentDetectionBoard.CurrentDetectionModel;
 import client.halouhuandian.app15.devicesController.sensor.CurrentDetectionFunc;
 
 /**
@@ -37,7 +35,6 @@ public final class DoorController {
 
     public void closeDoor(BatteryDataModel batteryDataModel, int closeDoorTryTimes) {
         if (batteryDataModel != null) {
-            final CurrentDetectionModel currentDetectionModel = CurrentDetectionController.getInstance().optCurrentDetectionModel();
             int tryTimes = closeDoorTryTimes;
             SystemClock.sleep(500);
 
@@ -54,10 +51,10 @@ public final class DoorController {
                         break;
                     }
 
-                    if (currentDetectionModel != null && currentDetectionModel.isExistDevice() && currentDetectionModel.isCurrentLimited()) {
+                    if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
                         RodDataController.getInstance().stop(batteryDataModel.doorNumber);
-                        if (currentDetectionModel.isCurrentLimited()) {
-                            while (currentDetectionModel.isCurrentLimited()) {
+                        if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
+                            while (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
                                 continue;
                             }
                         } else {
@@ -70,10 +67,10 @@ public final class DoorController {
                             // TODO: 2020/11/27 500ms开门的形成也需要处理电流板阈值报警停止推杆
                             final long stopTime_500ms = System.currentTimeMillis() + 500;
                             while (System.currentTimeMillis() < stopTime_500ms) {
-                                if (currentDetectionModel.isCurrentLimited()) {
+                                if (CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()) {
                                     RodDataController.getInstance().stop(batteryDataModel.doorNumber);
-                                    A_Main2.writeLocalLog("关门操作-" + batteryDataModel.doorNumber + "号仓电流板阈：" + currentDetectionModel.outCurrent_String
-                                            + "-电流板状态：" + currentDetectionModel.status_String
+                                    A_Main2.writeLocalLog("关门操作-" + batteryDataModel.doorNumber + "号仓"
+                                            + "-电流板状态：" + CurrentDetectionFunc.getInstance().isCurrentThresholdLimited()
                                             + "-值触发触发：发送停止推杆");
                                     break;
                                 }
