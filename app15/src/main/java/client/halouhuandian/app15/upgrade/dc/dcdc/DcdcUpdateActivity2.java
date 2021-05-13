@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.ExtensionTaskUpgrade.categories.dc.DC_UpgradeProgram;
 import com.apps.ExtensionTaskUpgrade.categories.dc.dcdc.DCDC_UpgradeProgram;
@@ -17,6 +18,7 @@ import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoAction;
 import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoType;
 import com.hellohuandian.pubfunction.Unit.LogUtil;
 
+import java.io.File;
 import java.io.IOException;
 
 import client.halouhuandian.app15.A_Main2;
@@ -149,6 +151,17 @@ public class DcdcUpdateActivity2 extends Activity {
         if (address <= 0) {
             return;
         }
+
+        File file = new File(filePath);
+        if (file == null || !file.exists()) {
+            return;
+        }
+        if (!file.getName().startsWith("TDK1000")) {
+            Toast.makeText(getApplicationContext(),"升级文件错误！",Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         DC_UpgradeProgram dc_upgradeProgram = new DCDC_UpgradeProgram(address);
         dc_upgradeProgram.setUpgradeFilePath(filePath);
         dc_upgradeProgram.setOnDCUpgradeCallBack(new DC_UpgradeProgram.OnDCUpgradeCallBack() {

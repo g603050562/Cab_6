@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.ExtensionTaskUpgrade.categories.dc.DC_UpgradeProgram;
 import com.apps.ExtensionTaskUpgrade.categories.dc.acdc.ACDC_UpgradeProgram;
@@ -16,6 +17,7 @@ import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoAction;
 import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoType;
 import com.hellohuandian.pubfunction.Unit.LogUtil;
 
+import java.io.File;
 import java.io.IOException;
 
 import client.halouhuandian.app15.A_Main2;
@@ -148,6 +150,16 @@ public class AcdcUpdateActivity2 extends Activity {
             case 2:
                 address += 0x50;
                 break;
+        }
+
+        File file = new File(filePath);
+        if (file == null || !file.exists()) {
+            return;
+        }
+        if (!file.getName().startsWith("TC096K3000")) {
+            Toast.makeText(getApplicationContext(), "升级文件错误！", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
         }
 
         ACDC_UpgradeProgram ac_upgradeProgram = new ACDC_UpgradeProgram(address);

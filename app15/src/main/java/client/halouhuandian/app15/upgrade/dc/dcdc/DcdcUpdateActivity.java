@@ -9,6 +9,7 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.ExtensionTaskUpgrade.categories.dc.DC_UpgradeProgram;
 import com.apps.ExtensionTaskUpgrade.categories.dc.dcdc.DCDC_UpgradeProgram;
@@ -17,6 +18,7 @@ import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoAction;
 import com.apps.ExtensionTaskUpgrade.core.ioAction.DeviceIoType;
 import com.hellohuandian.pubfunction.Unit.LogUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -164,6 +166,16 @@ public class DcdcUpdateActivity extends Activity {
     }
 
     private void update() {
+        File file = new File(filePath);
+        if (file == null || !file.exists()) {
+            return;
+        }
+        if (!file.getName().startsWith("TDK1000")) {
+            Toast.makeText(getApplicationContext(), "升级文件错误！", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         new Thread(new Runnable() {
             @Override
             public void run() {
