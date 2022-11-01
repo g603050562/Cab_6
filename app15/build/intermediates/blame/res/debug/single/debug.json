@@ -1,0 +1,658 @@
+[
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_true_white_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_true_white_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_2.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_2.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_camera_online.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_camera_online.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_alertdialog_update_720p.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/alertdialog_update_720p.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_05.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_05.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_org_radius_2.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_org_radius_2.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_true_orange_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_true_orange_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_mid_cab_message.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/mid_cab_message.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_b10.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/b10.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_yellow_radius_15.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_yellow_radius_15.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_720p.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_720p.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_1_org.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_1_org.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_firecontrol_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_firecontrol_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_gray_radius_0.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_gray_radius_0.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_12.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_12.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_20.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_20.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_1_12.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_1_12.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_download_dialog_item.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_download_dialog_item.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_80.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_80.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_bottom_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_bottom_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_b3.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/b3.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_progress_drawable_white.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/progress_drawable_white.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_true_orange_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_true_orange_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_alertdialog_admin.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/alertdialog_admin.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_exhange_bar_bg_1.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_exhange_bar_bg_1.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_camera.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_camera.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_9_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_9_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_90.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_90.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_0.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_0.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_720p_blue.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_720p_blue.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_camera.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_camera.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_cab_image_org.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_cab_image_org.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_04.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_04.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_bound_bg.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_bound_bg.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_30.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_30.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_orange_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_orange_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_index_bg.jpg.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/index_bg.jpg"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_11.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_11.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_logo_icon.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/logo_icon.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_cab_i3.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_cab_i3.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_bar_has.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_bar_has.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_bg.9.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_bg.9.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_720p_org.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_720p_org.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_camera_unline.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_camera_unline.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_exhange_bar_1.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_exhange_bar_1.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_9_animation.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_9_animation.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_right.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_right.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_download_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_download_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_60.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_60.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_03.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_03.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_bar_out.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_bar_out.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_33_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_33_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_left_bottom_corners_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_left_bottom_corners_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_exhange_bar_bg_3.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_exhange_bar_bg_3.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_fancontrol_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_fancontrol_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_12.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_12.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_50.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_50.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ios.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ios.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_3_12.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_3_12.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_720p_grid_item_1.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_720p_grid_item_1.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_06.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_06.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_mid_cab_car.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/mid_cab_car.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_and.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/and.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_6.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_6.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_40.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_40.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_orange_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_orange_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_radius_black_3.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_radius_black_3.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_gray_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_gray_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_round_gray.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/round_gray.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_09.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_09.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_currentplatecontrol_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_currentplatecontrol_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_1_blue.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_1_blue.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_progress_gray.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/progress_gray.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_001.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_001.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_bar_null.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_bar_null.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_point_white.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/point_white.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_red_66_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_red_66_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_720p_grid_item_2.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_720p_grid_item_2.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_battery_null.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_battery_null.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_70.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_70.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_cab_i1.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_cab_i1.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_radius_15.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_radius_15.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_3_9.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_3_9.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_org_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_org_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_1_9.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_1_9.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_08.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_08.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_2_9.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_2_9.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_blue.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_blue.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_item_bg.9.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/item_bg.9.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_radius_gray_3.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_radius_gray_3.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_7.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_7.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_3_blue.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_3_blue.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_updata_1080p.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_updata_1080p.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_radius_white_3.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_radius_white_3.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_10.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_10.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_cab_i2.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_cab_i2.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_2_org.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_2_org.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_01.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_01.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_org_white_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_org_white_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_controlplate_grid_item_1.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_controlplate_grid_item_1.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_radius_toast_3.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_radius_toast_3.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_updata_720p.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_updata_720p.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_round_org.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/round_org.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_index.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_index.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_right_bottom_corners_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_right_bottom_corners_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_12_dialog.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_12_dialog.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_camera_2.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_camera_2.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_10.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_10.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_b9.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/b9.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_9.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_9.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_07.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_07.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_mid_cab_clock.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/mid_cab_clock.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_003.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_003.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_controlplate_grid_item_2.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_controlplate_grid_item_2.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_exhange_bar_bg_2.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_exhange_bar_bg_2.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_define_bg.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_define_bg.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_dialog_icon.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/dialog_icon.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/menu_main.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_middle_bg_9.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_middle_bg_9.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_2_blue.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_2_blue.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_9.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_9.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_login_round_sold.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/login_round_sold.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_bottom_3_org.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/bottom_3_org.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_admin_1080p_dcdc_grid_item_2_12.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_admin_1080p_dcdc_grid_item_2_12.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_org_white_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_org_white_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_imp_001.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/imp_001.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_image_b_100.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/image_b_100.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_1.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_1.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_alertdialog_update_1080p.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/alertdialog_update_1080p.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_right_cab_i4.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/right_cab_i4.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_top_title.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_top_title.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_12.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_12.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_org.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_org.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_true_white_radius_10.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_true_white_radius_10.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_gray_33_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_gray_33_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_launcher.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_blue_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_blue_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_black_image_middle_bg_12.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/black_image_middle_bg_12.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_tel_24.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/tel_24.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_gray_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_gray_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_ic_loading_white_02.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/ic_loading_white_02.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_white_bottom_radius_3.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_white_bottom_radius_3.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_adv_defult.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/adv_defult.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_alertdialog_style.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/alertdialog_style.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_bar_not.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_bar_not.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_left_cab_image_blue.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/left_cab_image_blue.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_number_back.png.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/number_back.png"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/drawable_button_corners_black_radius_5.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/drawable/button_corners_black_radius_5.xml"
+    },
+    {
+        "merged": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/layout_activity_main_1080p_black_12_animation.xml.flat",
+        "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/layout/activity_main_1080p_black_12_animation.xml"
+    }
+]

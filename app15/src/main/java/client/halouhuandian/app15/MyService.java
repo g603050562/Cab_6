@@ -10,15 +10,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
+
 
 import java.util.List;
 
@@ -31,10 +25,10 @@ import java.util.List;
 public class MyService extends Service {
 
     private Context context;
-    private Thread date_thread;
+    private Thread dateThread;
 
-    private int is_stop_count = 0;
-    private int is_stop_max_count = 5;
+    private int isStopCount = 0;
+    private int isStopMaxCount = 5;
 
     private SharedPreferences sharedPreferences;
 
@@ -46,62 +40,52 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        System.out.println("线程保护：onCreate");
+        System.out.println("protectThread - step - onCreate");
         context = this;
         sharedPreferences = getSharedPreferences("CabInfo", Activity.MODE_PRIVATE);
 
-        date_thread = new Thread() {
+        dateThread = new Thread() {
             @Override
             public void run() {
                 super.run();
                 try {
                     while (true) {
                         String is_thread_protection = sharedPreferences.getString("thread_protection_type", "1");
-                        System.out.println("保护进程：" + is_thread_protection + "   " + "是否前台：" + isRunningForeground(context));
+                        System.out.println("protectThread - type - " + is_thread_protection + " - isTop - " + isRunningForeground(context));
                         if (is_thread_protection.equals("1")) {
                             if (isRunningForeground(context) == false) {
-                                is_stop_count = is_stop_count + 1;
-                                if (is_stop_count == is_stop_max_count) {
-                                    try {
-//                                        PackageUtil.launcher(context.getApplicationContext(), "client.NewElectric.app15", "client.NewElectric.app15.A_Main");
-                                        doStartApplicationWithPackageName("client.NewElectric.app15");
-                                    } catch (Exception ex) {
-                                        ex.printStackTrace();
-                                    }
-
-                                } else if (is_stop_count > is_stop_max_count + 5) {
-                                    is_stop_count = 0;
+                                isStopCount++;
+                                if (isStopCount > isStopMaxCount) {
+                                    doStartApplicationWithPackageName("client.NewElectric.app15");
+                                    isStopMaxCount = 0;
                                 }
                             } else {
-                                is_stop_count = 0;
+                                isStopCount = 0;
                             }
                         }
-                        sleep(1000);
+                        sleep(2000);
                     }
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    System.out.println("protectThread - error -" + e.toString());
                 }
             }
         };
-        date_thread.start();
+        dateThread.start();
     }
 
     //判断app是否在前台运行
     private boolean isRunningForeground(Context context) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-       try {
-           ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
-           String currentPackageName = cn.getPackageName();
-           if (!TextUtils.isEmpty(currentPackageName) && currentPackageName.equals(getPackageName())) {
-               return true;
-           }
-       }
-       catch (Exception ex)
-       {
-           ex.printStackTrace();
-           return false;
-       }
-
+        try {
+            ComponentName cn = am.getRunningTasks(1).get(0).topActivity;
+            String currentPackageName = cn.getPackageName();
+            if (!TextUtils.isEmpty(currentPackageName) && currentPackageName.equals(getPackageName())) {
+                return true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
         return false;
     }
 
@@ -125,8 +109,7 @@ public class MyService extends Service {
         resolveIntent.setPackage(packageinfo.packageName);
 
         // 通过getPackageManager()的queryIntentActivities方法遍历
-        List<ResolveInfo> resolveinfoList = getPackageManager()
-                .queryIntentActivities(resolveIntent, 0);
+        List<ResolveInfo> resolveinfoList = getPackageManager().queryIntentActivities(resolveIntent, 0);
 
         ResolveInfo resolveinfo = resolveinfoList.iterator().next();
         if (resolveinfo != null) {
@@ -137,7 +120,6 @@ public class MyService extends Service {
             // LAUNCHER Intent
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
-
             // 设置ComponentName参数1:packagename参数2:MainActivity路径
             ComponentName cn = new ComponentName(packageName, className);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -148,9 +130,7 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        System.out.println("线程保护：onStartCommand");
-
+        System.out.println("protectThread - step - onStartCommand");
         return super.onStartCommand(intent, flags, startId);
 
     }
@@ -158,6 +138,6 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        System.out.println("线程保护被杀死!");
+        System.out.println("protectThread - step - onDestroy");
     }
 }

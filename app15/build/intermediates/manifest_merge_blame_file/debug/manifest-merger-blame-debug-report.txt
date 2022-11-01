@@ -1,0 +1,216 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="client.NewElectric.app15"
+4    android:versionCode="12"
+5    android:versionName="2.0.002(bete)" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.hardware.usb.accessory" />
+11-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:5:5-70
+11-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:5:22-67
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+13-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:7:5-84
+13-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:7:22-81
+14    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+14-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:8:5-77
+14-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:8:22-74
+15    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+15-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:9:5-81
+15-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:9:22-78
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:10:5-81
+16-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:11:5-79
+17-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+18-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:13:5-84
+18-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:13:22-81
+19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+19-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:14:5-81
+19-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:14:22-78
+20    <uses-permission android:name="android.permission.GET_TASKS" />
+20-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:15:5-68
+20-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:15:22-65
+21    <uses-permission android:name="android.permission.INSTALL_LOCATION_PROVIDER" />
+21-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:16:5-84
+21-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:16:22-81
+22    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+22-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:18:5-80
+22-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:18:22-77
+23    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+23-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:19:5-75
+23-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:19:22-72
+24    <uses-permission android:name="android.permission.SEND_SMS" />
+24-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:20:5-67
+24-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:20:22-64
+25    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+25-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:21:5-70
+25-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:21:22-67
+26    <uses-permission android:name="android.permission.CAMERA" />
+26-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:23:5-65
+26-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:23:22-62
+27    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+27-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:24:5-71
+27-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:24:22-68
+28    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+28-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:25:5-78
+28-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:25:22-75
+29    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+29-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:26:5-79
+29-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:26:22-76
+30
+31    <meta-data
+31-->[com.android.support:support-compat:25.3.0] /Users/guozibo/.gradle/caches/transforms-2/files-2.1/fd438e99d453cefc98725fae79a076e4/support-compat-25.3.0/AndroidManifest.xml:25:5-27:34
+32        android:name="android.support.VERSION"
+32-->[com.android.support:support-compat:25.3.0] /Users/guozibo/.gradle/caches/transforms-2/files-2.1/fd438e99d453cefc98725fae79a076e4/support-compat-25.3.0/AndroidManifest.xml:26:9-47
+33        android:value="25.3.0" />
+33-->[com.android.support:support-compat:25.3.0] /Users/guozibo/.gradle/caches/transforms-2/files-2.1/fd438e99d453cefc98725fae79a076e4/support-compat-25.3.0/AndroidManifest.xml:27:9-31
+34
+35    <application
+35-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:28:5-112:19
+36        android:name="client.halouhuandian.app15.MyApplication"
+36-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:29:9-38
+37        android:allowBackup="true"
+37-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:30:9-35
+38        android:debuggable="true"
+39        android:hardwareAccelerated="false"
+39-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:34:9-44
+40        android:icon="@drawable/logo_icon"
+40-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:31:9-43
+41        android:label="换电主程序"
+41-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:32:9-30
+42        android:largeHeap="true"
+42-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:35:9-33
+43        android:roundIcon="@mipmap/ic_launcher_round"
+43-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:33:9-54
+44        android:testOnly="true"
+45        android:theme="@android:style/Theme.NoTitleBar" >
+45-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:36:9-56
+46        <activity
+46-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:38:9-46:20
+47            android:name="client.halouhuandian.app15.view.activity.A_Index"
+47-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:39:13-50
+48            android:configChanges="orientation|keyboardHidden"
+48-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:40:13-63
+49            android:launchMode="singleTask" >
+49-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:41:13-44
+50            <intent-filter>
+50-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:42:13-45:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:43:17-69
+51-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:43:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:44:17-77
+53-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:44:27-74
+54            </intent-filter>
+55        </activity>
+56        <activity
+56-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:48:9-52:20
+57            android:name="client.halouhuandian.app15.view.activity.main.A_Main_Hello_9"
+57-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:49:13-62
+58            android:configChanges="orientation|keyboardHidden"
+58-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:50:13-63
+59            android:launchMode="singleTask" >
+59-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:51:13-44
+60        </activity>
+61        <activity
+61-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:54:9-58:20
+62            android:name="client.halouhuandian.app15.view.activity.main.A_Main_Mixiang_12"
+62-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:55:13-65
+63            android:configChanges="orientation|keyboardHidden"
+63-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:56:13-63
+64            android:launchMode="singleTask" >
+64-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:57:13-44
+65        </activity>
+66        <activity
+66-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:60:9-64:20
+67            android:name="client.halouhuandian.app15.view.activity.main.A_Main_Mixiang_9"
+67-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:61:13-64
+68            android:configChanges="orientation|keyboardHidden"
+68-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:62:13-63
+69            android:launchMode="singleTask" >
+69-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:63:13-44
+70        </activity>
+71        <activity
+71-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:66:9-70:20
+72            android:name="client.halouhuandian.app15.view.activity.admin.A_Admin_9"
+72-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:67:13-58
+73            android:configChanges="orientation|keyboardHidden"
+73-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:68:13-63
+74            android:launchMode="singleTask" >
+74-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:69:13-44
+75        </activity>
+76        <activity
+76-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:72:9-76:20
+77            android:name="client.halouhuandian.app15.view.activity.admin.A_Admin_12"
+77-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:73:13-59
+78            android:configChanges="orientation|keyboardHidden"
+78-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:74:13-63
+79            android:launchMode="singleTask" >
+79-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:75:13-44
+80        </activity>
+81        <activity
+81-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:78:9-82:20
+82            android:name="client.halouhuandian.app15.view.activity.update.A_UpdateDcdc"
+82-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:79:13-62
+83            android:configChanges="orientation|keyboardHidden"
+83-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:80:13-63
+84            android:launchMode="singleTask" >
+84-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:81:13-44
+85        </activity>
+86        <activity
+86-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:84:9-88:20
+87            android:name="client.halouhuandian.app15.view.activity.update.A_UpdateAcdc"
+87-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:85:13-62
+88            android:configChanges="orientation|keyboardHidden"
+88-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:86:13-63
+89            android:launchMode="singleTask" >
+89-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:87:13-44
+90        </activity>
+91        <activity
+91-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:90:9-94:20
+92            android:name="client.halouhuandian.app15.view.activity.update.A_UpdateBattery"
+92-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:91:13-65
+93            android:configChanges="orientation|keyboardHidden"
+93-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:92:13-63
+94            android:launchMode="singleTask" >
+94-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:93:13-44
+95        </activity>
+96        <activity
+96-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:96:9-100:20
+97            android:name="client.halouhuandian.app15.view.activity.update.A_UpdateEnvironment"
+97-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:97:13-69
+98            android:configChanges="orientation|keyboardHidden"
+98-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:98:13-63
+99            android:launchMode="singleTop" >
+99-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:99:13-43
+100        </activity>
+101
+102        <service android:name="client.halouhuandian.app15.MyService" />
+102-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:103:9-46
+102-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:103:18-43
+103
+104        <!-- 开机自启动广播接受 -->
+105        <receiver android:name="client.halouhuandian.app15.view.receiver.AutoStartBroadcastReceiver" >
+105-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:106:9-110:20
+105-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:106:19-75
+106            <intent-filter>
+106-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:107:13-109:29
+107                <action android:name="android.intent.action.BOOT_COMPLETED" />
+107-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:108:17-79
+107-->/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/AndroidManifest.xml:108:25-76
+108            </intent-filter>
+109        </receiver>
+110    </application>
+111
+112</manifest>

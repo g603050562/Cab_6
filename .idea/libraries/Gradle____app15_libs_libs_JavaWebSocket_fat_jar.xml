@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./app15/libs/libs/JavaWebSocket_fat.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app15/libs/libs/JavaWebSocket_fat.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

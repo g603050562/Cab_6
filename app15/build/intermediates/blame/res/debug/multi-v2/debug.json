@@ -1,0 +1,115 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "107,58,161",
+                        "endColumns": "52,47,52",
+                        "endOffsets": "155,101,209"
+                    },
+                    "to": {
+                        "startLines": "16,17,18",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "872,925,973",
+                        "endColumns": "52,47,52",
+                        "endOffsets": "920,968,1021"
+                    }
+                },
+                {
+                    "source": "/Users/guozibo/.gradle/caches/transforms-2/files-2.1/f83b75a47f55536dc8662d423091874a/rclayout-1.8.1/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,107,159,218,289,361,429,498,555,614,966,1322",
+                        "endColumns": "51,51,58,70,71,67,68,56,58,351,355,360",
+                        "endOffsets": "102,154,213,284,356,424,493,550,609,961,1317,1678"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,88,89,90",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,107,159,218,289,361,429,498,555,4550,4902,5258",
+                        "endColumns": "51,51,58,70,71,67,68,56,58,351,355,360",
+                        "endOffsets": "102,154,213,284,356,424,493,550,609,4897,5253,5614"
+                    }
+                },
+                {
+                    "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "92,151",
+                        "endColumns": "57,55",
+                        "endOffsets": "145,202"
+                    },
+                    "to": {
+                        "startLines": "14,15",
+                        "startColumns": "4,4",
+                        "startOffsets": "758,816",
+                        "endColumns": "57,55",
+                        "endOffsets": "811,867"
+                    }
+                },
+                {
+                    "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/values/colors.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "153,55,102",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "194,97,148"
+                    },
+                    "to": {
+                        "startLines": "11,12,13",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "614,660,707",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "655,702,753"
+                    }
+                },
+                {
+                    "source": "/Users/guozibo/.gradle/caches/transforms-2/files-2.1/6df627a3e66d3d08a6e346036868a403/library-2.1.3/res/values/values.xml",
+                    "from": {
+                        "startLines": "4,11,18,2",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "432,722,1018,55",
+                        "endLines": "10,17,24,2",
+                        "endColumns": "12,12,12,331",
+                        "endOffsets": "717,1013,1309,382"
+                    },
+                    "to": {
+                        "startLines": "19,26,33,87",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1026,1316,1612,4218",
+                        "endLines": "25,32,39,87",
+                        "endColumns": "12,12,12,331",
+                        "endOffsets": "1311,1607,1903,4545"
+                    }
+                },
+                {
+                    "source": "/Users/guozibo/AndroidStudioProjects/HelloHuanDianApp15/app15/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "19,6,15,53,29,43",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "697,192,525,2179,1148,1680",
+                        "endLines": "27,12,17,59,40,51",
+                        "endColumns": "12,12,12,12,12,12",
+                        "endOffsets": "1140,484,689,2588,1670,2171"
+                    },
+                    "to": {
+                        "startLines": "40,49,56,59,66,78",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "1908,2348,2639,2806,3214,3730",
+                        "endLines": "48,55,58,65,77,86",
+                        "endColumns": "12,12,12,12,12,12",
+                        "endOffsets": "2343,2634,2801,3209,3725,4213"
+                    }
+                }
+            ]
+        }
+    ]
+}

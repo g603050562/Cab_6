@@ -5,16 +5,8 @@
     xmlns:camerakit="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <com.wonderkiln.camerakit.CameraView
+    <SurfaceView
         android:id="@+id/camera_preview"
-        camerakit:ckCropOutput="true"
-        camerakit:ckFlash="off"
-        camerakit:ckFocus="continuous"
-        camerakit:ckJpegQuality="100"
-        camerakit:ckMethod="standard"
-        camerakit:ckPermissions="strict"
-        camerakit:ckVideoQuality="480p"
-        camerakit:ckZoom="pinch"
         android:layout_width="match_parent"
         android:layout_height="235dp"
         android:adjustViewBounds="true" />
